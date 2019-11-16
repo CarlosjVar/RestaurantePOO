@@ -54,7 +54,7 @@ public class Pedido {
     /**
      * @return
      */
-    public Int getConsecutivo() {
+    public int getConsecutivo() {
         // TODO implement here
         return null;
     }
