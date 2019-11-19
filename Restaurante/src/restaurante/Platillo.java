@@ -1,11 +1,12 @@
 package restaurante;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Platillo {
+public class Platillo implements Serializable{
 
     public Platillo(String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas) {
         this.Codigo = Codigo;
