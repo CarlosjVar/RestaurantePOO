@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class Bebida extends Platillo {
 
-    public Bebida(boolean Gaseosa, String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas) {
-        super(Codigo, Descripcion, Racion, Calorias, Precio, activo, Ventas);
+    public Bebida(boolean Gaseosa, String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas, String nombre) {
+        super(Codigo, Descripcion, Racion, Calorias, Precio, activo, Ventas, nombre);
         this.Gaseosa = Gaseosa;
     }
     

@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class Platillo implements Serializable{
 
-    public Platillo(String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas) {
+    public Platillo(String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas, String nombre) {
         this.Codigo = Codigo;
         this.Descripcion = Descripcion;
         this.Racion = Racion;
@@ -16,6 +16,7 @@ public class Platillo implements Serializable{
         this.Precio = Precio;
         this.activo = activo;
         this.Ventas = Ventas;
+        this.Nombre = nombre;
     }
 
 
@@ -32,7 +33,16 @@ public class Platillo implements Serializable{
     protected boolean activo;
 
     protected int Ventas;
+    
+    protected String Nombre;
 
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
     public String getCodigo() {
         return Codigo;
     }

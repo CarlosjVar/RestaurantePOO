@@ -1,55 +1,105 @@
 package restaurante;
 
 import java.util.*;
+import java.lang.String;
 
 /**
  * 
  */
 public class Restaurante implements Observer {
-
-    public Restaurante(ArrayList listaVentas, int MontoExpress, int MontoEmpaque) {
-        this.listaVentas = listaVentas;
-        this.MontoExpress = MontoExpress;
-        this.MontoEmpaque = MontoEmpaque;
-    }
-
-
     private ArrayList listaVentas;
 
     private int MontoExpress;
 
     private int MontoEmpaque;
+    
+    private ArrayList <Platillo> Menu;
+    
+    private static Restaurante RediPicsa=null;
+    
+    private Restaurante() {
+    this.listaVentas = new ArrayList<Platillo>();
+    this.MontoExpress = 0;
+    this.MontoEmpaque = 0;
+    this.Menu = new ArrayList<Platillo>();
+    }
 
-    public void AgregarPlatillo() {
-        // TODO implement here
+    private static Restaurante getInstance(){
+        if(RediPicsa==null)
+            RediPicsa=new Restaurante();
+        return RediPicsa;
+    }
+    
+    public void AgregarPlatillo(String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas, String nombre) {
+        Restaurante rediPicsa=getInstance();
+        boolean esta=false;
+        for(int i=0; i<rediPicsa.Menu.size();i++)
+        {
+           Platillo plat=rediPicsa.Menu.get(i);
+           if(plat.getNombre()==nombre);
+                esta=true;
+        }
+        if(!esta)
+        {
+            Platillo comida=new Platillo(Codigo, Descripcion, Racion, Calorias, Precio, activo, Ventas, nombre);
+            rediPicsa.Menu.add(comida);
+        }
     }
 
     /**
      * 
      */
-    public void BorrarPlatillo() {
-        // TODO implement here
+    public void BorrarPlatillo(String nombre) {
+        Restaurante rediPicsa=getInstance();
+        for(int i=0; i<rediPicsa.Menu.size();i++)
+        {
+           Platillo plat=rediPicsa.Menu.get(i);
+           if(plat.getNombre()==nombre);
+                rediPicsa.Menu.remove(i);
+        }
     }
 
     /**
      * 
      */
-    public void ModificarPlatillo() {
-        // TODO implement here
+    public void ModificarPlatillo(String nomIni, String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas, String nombre) {
+        Restaurante rediPicsa=getInstance();
+        for(int i=0; i<rediPicsa.Menu.size();i++)
+        {
+           Platillo plat=rediPicsa.Menu.get(i);
+           if(plat.getNombre()==nomIni);
+                rediPicsa.Menu.remove(i);
+        }
+        boolean esta=false;
+        for(int i=0; i<rediPicsa.Menu.size();i++)
+        {
+           Platillo plat=rediPicsa.Menu.get(i);
+           if(plat.getNombre()==nombre);
+                esta=true;
+        }
+        if(!esta)
+        {
+            Platillo comida=new Platillo(Codigo, Descripcion, Racion, Calorias, Precio, activo, Ventas, nombre);
+            rediPicsa.Menu.add(comida);
+        }
     }
 
     /**
      * 
      */
-    public void HabilitarProducto() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void DeshabilitarProducto() {
-        // TODO implement here
+    public void HabilitarProducto(String nombre) {
+        Restaurante rediPicsa=getInstance();
+        for(int i=0; i<rediPicsa.Menu.size();i++)
+        {
+           if(rediPicsa.Menu.get(i).getNombre()==nombre);{
+                if(rediPicsa.Menu.get(i).isActivo()){
+                    rediPicsa.Menu.get(i).setActivo(false);
+                }
+                else
+                    rediPicsa.Menu.get(i).setActivo(true);
+            }
+                
+        }
     }
 
     /**
@@ -78,6 +128,14 @@ public class Restaurante implements Observer {
      */
     public void ModificarMontoEmpaque() {
         // TODO implement here
+    }
+
+    public ArrayList getMenu() {
+        return Menu;
+    }
+
+    public void setMenu(ArrayList Menu) {
+        this.Menu = Menu;
     }
 
     public ArrayList getListaVentas() {

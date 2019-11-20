@@ -105,7 +105,7 @@ class Server {
         ObjectInputStream InStream=new ObjectInputStream(socket.getInputStream());
         Paquete IntData=(Paquete)InStream.readObject();
         System.out.print(IntData.message);
-        Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23);
+        Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23, "salchipapa");
         int Precio = Salchichón.getPrecio();
         if(IntData.message.equals("Fabrizio se caga y no le llega a un destiny"))
         {          
