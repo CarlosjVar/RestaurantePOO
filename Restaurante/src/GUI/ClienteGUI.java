@@ -10,11 +10,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import GUI.Paquete;
+import GUI.Paquete;
+import GUI.Server;
 import restaurante.Platillo;
 
 /**
  *
- * @author carlo
+ * @author Fabrizio
  */
 public class ClienteGUI extends javax.swing.JFrame {
 
@@ -56,7 +58,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     private static final Integer PORT=1234;
     private static final String IP_Server="123.0.0.1";
     public static void main(String args[]) throws IOException, ClassNotFoundException {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -85,14 +87,14 @@ public class ClienteGUI extends javax.swing.JFrame {
                 new ClienteGUI().setVisible(true);
             }
         });
-        new Cliente();
+        new SocketCliente();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
-    class Cliente{
-    public Cliente() throws IOException, ClassNotFoundException
+    class SocketCliente{
+    public SocketCliente() throws IOException, ClassNotFoundException
     {
         Socket socket=new Socket("127.0.0.1",Server.PORT);
         ObjectOutputStream OutStream=new ObjectOutputStream(socket.getOutputStream());

@@ -54,7 +54,6 @@ public class ServerGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    static final Integer PORT=1234;
             
     public static void main(String args[]) throws Exception {
         /* Set the Nimbus look and feel */
@@ -96,23 +95,26 @@ public class ServerGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 class Server {
-    public static final int PORT=3191;
+    public static final int PORT=6969;
     public Server()throws Exception{
         ServerSocket serverSocket = new ServerSocket(PORT);
-        System.out.println("Server abierto pa");
-        Socket socket=serverSocket.accept();//Mantiene la conexión
-        ObjectOutputStream OutStream=new ObjectOutputStream(socket.getOutputStream());
-        ObjectInputStream InStream=new ObjectInputStream(socket.getInputStream());
-        Paquete IntData=(Paquete)InStream.readObject();
-        System.out.print(IntData.message);
-        Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23, "salchipapa");
-        int Precio = Salchichón.getPrecio();
-        if(IntData.message.equals("Fabrizio se caga y no le llega a un destiny"))
-        {          
-            OutStream.writeObject(Salchichón);
+        System.out.println("Servidor conectado");
+        while(true)
+        {
+            Socket socket=serverSocket.accept();//Mantiene la conexión
+            ObjectOutputStream OutStream=new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream InStream=new ObjectInputStream(socket.getInputStream());
+            Mensaje IntData=(Mensaje)InStream.readObject();
+            System.out.print(IntData.message);
+            Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23, "salchipapa");
+            int Precio = Salchichón.getPrecio();
+            if(IntData.message.equals("Fabrizio se caga y no le llega a un destiny"))
+            {          
+                OutStream.writeObject(Salchichón);
+            }
         }
-        serverSocket.close();
+        //serverSocket.close();
     }
-    }
+}
 
 
