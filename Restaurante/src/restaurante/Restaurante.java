@@ -105,29 +105,33 @@ public class Restaurante implements Observer {
     /**
      * 
      */
-    public void RegistrarMontoExpress() {
-        // TODO implement here
+    public void RegistrarMontoExpress(int nuevMonto) {
+        Restaurante rediPicsa=getInstance();
+        rediPicsa.setMontoExpress(nuevMonto);
     }
 
     /**
      * 
      */
-    public void RegistrarMontoEmpaque() {
-        // TODO implement here
+    public void RegistrarMontoEmpaque(int nuevMonto) {
+        Restaurante rediPicsa=getInstance();
+        rediPicsa.setMontoExpress(nuevMonto);
     }
 
     /**
      * 
      */
-    public void ModificarMontoExpress() {
-        // TODO implement here
+    public void ModificarMontoExpress(int nuevMonto) {
+        Restaurante rediPicsa=getInstance();
+        rediPicsa.setMontoExpress(nuevMonto);
     }
 
     /**
      * 
      */
-    public void ModificarMontoEmpaque() {
-        // TODO implement here
+    public void ModificarMontoEmpaque(int nuevMonto) {
+        Restaurante rediPicsa=getInstance();
+        rediPicsa.setMontoExpress(nuevMonto);
     }
 
     public ArrayList getMenu() {
