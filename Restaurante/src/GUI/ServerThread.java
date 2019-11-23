@@ -15,7 +15,7 @@ import restaurante.Platillo;
  *
  * @author Fabrizio
  */
-public class ServerThread extends Thread {
+public class ServerThread implements Runnable {
 
     Socket socket;
     ObjectOutputStream OutStream;
@@ -31,9 +31,7 @@ public class ServerThread extends Thread {
     public void run(){
         Mensaje informacion;
         try{
-            
             while((informacion =(Mensaje)InStream.readObject())!=null){
-                this.OutStream.reset();
                 System.out.print(informacion.message);
                 Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23, "salchipapa");
                 Platillo Chorizo=new Platillo("Soy Chorizo","Chorizo soy",12, (float) 0.5,19,true,23, "chorizin");

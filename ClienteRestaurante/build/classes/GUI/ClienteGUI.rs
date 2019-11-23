@@ -1,2 +1,0 @@
-GUI.ClienteGUI
-GUI.SocketCliente

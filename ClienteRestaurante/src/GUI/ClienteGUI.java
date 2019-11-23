@@ -25,7 +25,6 @@ public class ClienteGUI extends javax.swing.JFrame {
      * Creates new form ClienteGUI
      */
     public ClienteGUI() throws IOException, ClassNotFoundException {
-        initComponents();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,7 +116,7 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        System.out.println("Joseph + Pia = Amor \nte la creiste wer xdxd");
+        System.out.println("\nJoseph + Pia = Amor \nte la creiste wer xdxd");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -195,6 +194,7 @@ public class ClienteGUI extends javax.swing.JFrame {
            OutStream.writeObject(mensaje);
            Platillo platilloX=(Platillo)InStream.readObject();
            System.out.print(platilloX.getDescripcion());
+           
         }
     }
 //"Fabrizio se caga y no le llega a un destiny"
