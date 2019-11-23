@@ -18,24 +18,32 @@ import restaurante.Platillo;
 public class ServerThread extends Thread {
 
     Socket socket;
+    ObjectOutputStream OutStream;
+    ObjectInputStream InStream;
     
-    public ServerThread(Socket sock) {
+    public ServerThread(Socket sock) throws IOException {
         this.socket = sock;
+        this.OutStream=new ObjectOutputStream(socket.getOutputStream());
+        this.InStream=new ObjectInputStream(socket.getInputStream());
     }
     
     @Override
     public void run(){
         Mensaje informacion;
         try{
-            ObjectOutputStream OutStream=new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream InStream=new ObjectInputStream(socket.getInputStream());
+            
             while((informacion =(Mensaje)InStream.readObject())!=null){
+                this.OutStream.reset();
                 System.out.print(informacion.message);
                 Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23, "salchipapa");
-                int Precio = Salchichón.getPrecio();
-                if(informacion.message.equals("Fabrizio se caga y no le llega a un destiny"))
+                Platillo Chorizo=new Platillo("Soy Chorizo","Chorizo soy",12, (float) 0.5,19,true,23, "chorizin");
+                if(informacion.message.equals("Fabrizio se caga y no le llega a un Heilo"))
                 {
                     OutStream.writeObject(Salchichón);
+                }
+                else if(informacion.message.equals("Fabrizio se caga y no le llega a un destiny"))
+                {
+                    OutStream.writeObject(Chorizo);
                 }
             }
             socket.close();
