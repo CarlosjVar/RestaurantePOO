@@ -5,7 +5,9 @@
  */
 package GUI;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -83,7 +85,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         });
         SocketCliente sock=new SocketCliente();
         sock.mandarSignal();
-        sock.mandarSignal();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -104,14 +105,16 @@ public class ClienteGUI extends javax.swing.JFrame {
 //            OutStream.close();
             //socket.close();
         }
-        public void mandarSignal() throws IOException, ClassNotFoundException
-        {
+        public void mandarSignal() throws IOException, ClassNotFoundException{
             ObjectOutputStream OutStream=new ObjectOutputStream(this.socket.getOutputStream());
             ObjectInputStream InStream=new ObjectInputStream(this.socket.getInputStream());
-            Mensaje mensaje=new Mensaje("Fabrizio se caga y no le llega a un destiny");
+            BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+            String readerInput=buffer.readLine();
+            Mensaje mensaje=new Mensaje(readerInput);
             OutStream.writeObject(mensaje);
             Platillo platilloX=(Platillo)InStream.readObject();
             System.out.print(platilloX.getDescripcion());
             //OutStream.close();
         }
-}
+    }
+//"Fabrizio se caga y no le llega a un destiny"

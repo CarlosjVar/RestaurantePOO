@@ -7,6 +7,7 @@ package GUI;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -87,34 +88,11 @@ public class ServerGUI extends javax.swing.JFrame {
             }
         }
         );  
-        new Server();
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-}
-class Server {
-    public static final int PORT=6969;
-    public Server()throws Exception{
-        ServerSocket serverSocket = new ServerSocket(PORT);
-        System.out.println("Servidor conectado");
-        while(true)
-        {
-            Socket socket=serverSocket.accept();//Mantiene la conexión
-            ObjectOutputStream OutStream=new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream InStream=new ObjectInputStream(socket.getInputStream());
-            Mensaje IntData=(Mensaje)InStream.readObject();
-            System.out.print(IntData.message);
-            Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23, "salchipapa");
-            int Precio = Salchichón.getPrecio();
-            if(IntData.message.equals("Fabrizio se caga y no le llega a un destiny"))
-            {          
-                OutStream.writeObject(Salchichón);
-            }
-        }
-        //serverSocket.close();
-    }
 }
 
 

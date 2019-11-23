@@ -6,23 +6,18 @@
 package GUI;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-import GUI.Paquete;
-import GUI.Paquete;
-import restaurante.Platillo;
+
 
 /**
  *
  * @author Fabrizio
  */
-public class ClienteGUI extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form ClienteGUI
+     * Creates new form MainWindow
      */
-    public ClienteGUI() {
+    public MainWindow() {
         initComponents();
     }
 
@@ -54,10 +49,8 @@ public class ClienteGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private static final Integer PORT=1234;
-    private static final String IP_Server="123.0.0.1";
     public static void main(String args[]) throws IOException, ClassNotFoundException {
-        
+        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -70,22 +63,24 @@ public class ClienteGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClienteGUI().setVisible(true);
+                new MainWindow().setVisible(true);
             }
         });
+        Servidor server=new Servidor();
+        server.iniciarServidor();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
