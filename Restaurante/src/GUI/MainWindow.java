@@ -23,7 +23,6 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
-        XmlParser.CargarXML(rediPicsa.getMenu(),rediPicsa);
     }
 
     /**
@@ -58,8 +57,6 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu11 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
         jMenu12 = new javax.swing.JMenu();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
@@ -144,8 +141,13 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1.add(jMenu10);
 
         jMenu11.setText("Administrar entrega");
+        jMenu11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu11ActionPerformed(evt);
+            }
+        });
 
-        jMenuItem9.setText("Registrar precio de entrega");
+        jMenuItem9.setText("Registrar/Modificar precio de entrega");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -153,29 +155,13 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu11.add(jMenuItem9);
 
-        jMenuItem10.setText("Modificar precio de entrega");
+        jMenuItem10.setText("Registrar/Modificar precio de empaque");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
             }
         });
         jMenu11.add(jMenuItem10);
-
-        jMenuItem11.setText("Modifcar precio de empaque");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
-            }
-        });
-        jMenu11.add(jMenuItem11);
-
-        jMenuItem12.setText("Registrar precio de empaque");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
-            }
-        });
-        jMenu11.add(jMenuItem12);
 
         jMenuBar1.add(jMenu11);
 
@@ -222,7 +208,7 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -277,25 +263,21 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     ArrayList <Platillo> Menu =  Restaurante.getInstance().getMenu();
         for (Platillo plato : Menu){
-            System.out.println(plato.getCodigo() + plato.isActivo());
+            System.out.println(plato.getCodigo());
         }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
+        modificarExpress ventana = new modificarExpress();
+        ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
+        modificarEmpaque ventana = new modificarEmpaque();
+        ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
-
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
         // TODO add your handling code here:
@@ -312,6 +294,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,8 +352,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;

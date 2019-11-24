@@ -370,23 +370,19 @@ public class modificaPlatillo extends javax.swing.JFrame {
         ArrayList <Platillo> Menu = Restaurante.getInstance().getMenu();
         for (Platillo plato : Menu ){
             if (plato.getCodigo().equals(codigo)){
-                String tipo = plato.getCodigo().substring(0,2);
-                if (null == tipo){
-                    jComboBox1.setSelectedIndex(3);
+                String tipo = plato.getCodigo().substring(0,3);
+                System.out.println (tipo);
+                if ("ENT".equals (tipo)){
+                   jComboBox1.setSelectedIndex(0);
                 }
-                else switch (tipo) {
-                    case "ENT":
-                        jComboBox1.setSelectedIndex(0);
-                        break;
-                    case "PRN":
-                        jComboBox1.setSelectedIndex(1);
-                        break;
-                    case "PTR":
-                        jComboBox1.setSelectedIndex(2);
-                        break;
-                    default:
-                        jComboBox1.setSelectedIndex(3);
-                        break;
+                else if ("PRN".equals(tipo)){
+                    jComboBox1.setSelectedIndex(1);
+                }
+                else if ("PTR".equals(tipo)){
+                    jComboBox1.setSelectedIndex(2);
+                }
+                else{
+                    jComboBox1.setSelectedIndex(3);
                 }
                 jTextField1.setText(plato.getCodigo().substring(4));
                 jTextField2.setText(plato.getNombre());
