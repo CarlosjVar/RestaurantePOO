@@ -60,14 +60,16 @@ public class Restaurante implements Observer {
     /**
      * 
      */
-    public void BorrarPlatillo(String nombre) {
+    public boolean BorrarPlatillo(String codigo) {
         Restaurante rediPicsa=getInstance();
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getNombre()==nombre);
+           if(plat.getCodigo()==codigo);
                 rediPicsa.Menu.remove(i);
+                return true;
         }
+        return false;
     }
 
     /**

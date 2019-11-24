@@ -5,9 +5,9 @@
  */
 package GUI;
 
+import restaurante.*;
 import java.io.IOException;
-import restaurante.Restaurante;
-import restaurante.XmlParser;
+import java.util.ArrayList;
 
 
 /**
@@ -15,12 +15,12 @@ import restaurante.XmlParser;
  * @author Fabrizio
  */
 public class MainWindow extends javax.swing.JFrame {
+    
+    private Restaurante restaurante = Restaurante.getInstance();
 
     /**
      * Creates new form MainWindow
      */
-    
-    
     public MainWindow() {
         initComponents();
     }
@@ -34,21 +34,279 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenu12 = new javax.swing.JMenu();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuItem19 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
+
+        jMenu5.setText("File");
+        jMenuBar2.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar2.add(jMenu6);
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jRadioButtonMenuItem3.setSelected(true);
+        jRadioButtonMenuItem3.setText("jRadioButtonMenuItem3");
+
+        jMenuItem2.setText("jMenuItem2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Aplicación del administrador ");
+
+        jLabel1.setFont(new java.awt.Font("Vani", 2, 18)); // NOI18N
+        jLabel1.setText("Sistema de Administración de Restaurante RediPicsa");
+
+        jLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel2.setText("Bienvenido a la aplicación de Administrador");
+
+        jLabel3.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel3.setText("encontrará sus opciones en el superior de esta ventana");
+
+        jMenu9.setText("Administrar catálogo");
+
+        jMenuItem5.setText("Añadir platillo");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem5);
+
+        jMenuItem4.setText("Eliminar platillo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem4);
+
+        jMenuItem6.setText("Modificar platillo");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem6);
+
+        jMenuItem7.setText("Habilitar/Deshabilitar Platillo");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem7);
+
+        jMenuBar1.add(jMenu9);
+
+        jMenu10.setText("Ver menu");
+
+        jMenuItem8.setText("Menu del restaurante");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu10);
+
+        jMenu11.setText("Administrar entrega");
+
+        jMenuItem9.setText("Registrar precio de entrega");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem9);
+
+        jMenuItem10.setText("Modificar precio de entrega");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem10);
+
+        jMenuItem11.setText("Modifcar precio de empaque");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem11);
+
+        jMenuItem12.setText("Registrar precio de empaque");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem12);
+
+        jMenuBar1.add(jMenu11);
+
+        jMenu12.setText("Reportes de pedidos");
+
+        jMenuItem16.setText("Listado de pedidos");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem16);
+
+        jMenuItem17.setText("Top - Ten ");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem17);
+
+        jMenuItem18.setText("Productos nunca pedidos");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem18);
+
+        jMenuItem19.setText("Relación de tipos de pedidos ");
+        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem19ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem19);
+
+        jMenuBar1.add(jMenu12);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(111, 111, 111))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        borrarPlatillo ventana = new borrarPlatillo();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        añadirPlatillo ventana = new añadirPlatillo();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    ArrayList <Platillo> Menu =  Restaurante.getInstance().getMenu();
+        for (Platillo plato : Menu){
+            System.out.println(plato.getCodigo());
+        }
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
+
+    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,26 +341,40 @@ public class MainWindow extends javax.swing.JFrame {
                 new MainWindow().setVisible(true);
             }
         });
-        Restaurante rediPicsa=Restaurante.getInstance();
-//        rediPicsa.AgregarPlatillo("ENT-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
-//        rediPicsa.AgregarPlatillo("ENT-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
-//        rediPicsa.AgregarPlatillo("ENT-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
-//        rediPicsa.AgregarPlatillo("PRN-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
-//        rediPicsa.AgregarPlatillo("PRN-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
-//        rediPicsa.AgregarPlatillo("PRN-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
-//        rediPicsa.AgregarPlatillo("BEB-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
-//        rediPicsa.AgregarPlatillo("BEB-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
-//        rediPicsa.AgregarPlatillo("BEB-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
-//        rediPicsa.AgregarPlatillo("PTR-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
-//        rediPicsa.AgregarPlatillo("PTR-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
-//        rediPicsa.AgregarPlatillo("PTR-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
-        XmlParser parser=new XmlParser();
-        //parser.CrearXML(rediPicsa.getMenu());
-        parser.CargarXML(rediPicsa.getMenu(),rediPicsa);
         Servidor server=new Servidor();
         server.iniciarServidor();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
