@@ -24,7 +24,15 @@ public class Restaurante implements Observer {
     this.MontoExpress = 0;
     this.MontoEmpaque = 0;
     this.Menu = new ArrayList<Platillo>();
-    this.registro=new ArrayList<String>()
+    this.registro=new ArrayList<String>();
+    }
+
+    public ArrayList<String> getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(ArrayList<String> registro) {
+        this.registro = registro;
     }
 
     public static Restaurante getInstance(){
@@ -39,7 +47,7 @@ public class Restaurante implements Observer {
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getNombre()==nombre);
+           if(plat.getCodigo()==Codigo)
                 esta=true;
         }
         if(!esta)
@@ -70,14 +78,14 @@ public class Restaurante implements Observer {
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getNombre()==nomIni);
+           if(plat.getCodigo()==Codigo);
                 rediPicsa.Menu.remove(i);
         }
         boolean esta=false;
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getNombre()==nombre);
+           if(plat.getCodigo()==Codigo);
                 esta=true;
         }
         if(!esta)

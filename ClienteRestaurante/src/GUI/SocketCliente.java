@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import restaurante.Platillo;
 
 /**
  *
@@ -31,17 +30,19 @@ class SocketCliente{
             //socket.close();
         }
         public void mandarSignal(String info) throws IOException, ClassNotFoundException{
-           this.socket=new Socket("127.0.0.1",6969);
-           ObjectOutputStream OutStream=new ObjectOutputStream(this.socket.getOutputStream());
-           ObjectInputStream InStream=new ObjectInputStream(this.socket.getInputStream());
-//            BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-//            String readerInput=buffer.readLine();
-           Mensaje mensaje=new Mensaje(info);
-           OutStream.reset();
-           OutStream.writeObject(mensaje);
-           Platillo platilloX=(Platillo)InStream.readObject();
-           System.out.print(platilloX.getDescripcion());
-           socket.close();
+            this.socket=new Socket("127.0.0.1",6969);
+            ObjectOutputStream OutStream=new ObjectOutputStream(this.socket.getOutputStream());
+            ObjectInputStream InStream=new ObjectInputStream(this.socket.getInputStream());
+            Mensaje mensaje=new Mensaje(info);
+            OutStream.reset();
+            OutStream.writeObject(mensaje);
+            Mensaje mensa=(Mensaje)InStream.readObject();
+            System.out.print(mensa.getMessage());
+            if("Menu".equals(mensa.getMessage())){
+                System.out.println(mensa.getMenu().size());
+                VentanaCompra.getInstance().rellenarVentanas(mensa.getMenu());
+            }
+            socket.close();
         }
     }
 //"Fabrizio se caga y no le llega a un destiny"

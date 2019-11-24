@@ -49,7 +49,9 @@ public class ServerThread implements Runnable {
                         Menusote.add(plato);
                     }
                 }
+                Restaurante.getInstance().getRegistro().add("Se ha enviado el menu");
                 Mensaje mensaje=new Mensaje(Menusote);
+                mensaje.setMessage("Menu");
                 OutStream.writeObject(mensaje);
             }
             else if(informacion.message.equals("Vergenta")){

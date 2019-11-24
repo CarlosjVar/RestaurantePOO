@@ -15,6 +15,14 @@ import restaurante.Platillo;
  */
 public class Mensaje implements Serializable {
 
+    public ArrayList getMenu() {
+        return Menu;
+    }
+
+    public void setMenu(ArrayList Menu) {
+        this.Menu = Menu;
+    }
+
     public String message;
    
     public Platillo peticion;

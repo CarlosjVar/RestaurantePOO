@@ -6,6 +6,8 @@
 package GUI;
 
 import java.io.IOException;
+import restaurante.Restaurante;
+import restaurante.XmlParser;
 
 
 /**
@@ -17,6 +19,8 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    
+    
     public MainWindow() {
         initComponents();
     }
@@ -79,6 +83,22 @@ public class MainWindow extends javax.swing.JFrame {
                 new MainWindow().setVisible(true);
             }
         });
+        Restaurante rediPicsa=Restaurante.getInstance();
+//        rediPicsa.AgregarPlatillo("ENT-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
+//        rediPicsa.AgregarPlatillo("ENT-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
+//        rediPicsa.AgregarPlatillo("ENT-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
+//        rediPicsa.AgregarPlatillo("PRN-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
+//        rediPicsa.AgregarPlatillo("PRN-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
+//        rediPicsa.AgregarPlatillo("PRN-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
+//        rediPicsa.AgregarPlatillo("BEB-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
+//        rediPicsa.AgregarPlatillo("BEB-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
+//        rediPicsa.AgregarPlatillo("BEB-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
+//        rediPicsa.AgregarPlatillo("PTR-009", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Picha");
+//        rediPicsa.AgregarPlatillo("PTR-010", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichota");
+//        rediPicsa.AgregarPlatillo("PTR-008", "CHORIZO!!!!!", 900, 6969.69f, 1000, "Pichin");
+        XmlParser parser=new XmlParser();
+        //parser.CrearXML(rediPicsa.getMenu());
+        parser.CargarXML(rediPicsa.getMenu(),rediPicsa);
         Servidor server=new Servidor();
         server.iniciarServidor();
     }

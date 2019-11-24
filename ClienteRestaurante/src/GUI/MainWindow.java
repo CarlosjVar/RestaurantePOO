@@ -131,8 +131,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
-        
+        VentanaCompra.getInstance().setVisible(true);
+        try {
+            SocketCliente sockt=new SocketCliente();
+            sockt.mandarSignal("Mierdu");
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

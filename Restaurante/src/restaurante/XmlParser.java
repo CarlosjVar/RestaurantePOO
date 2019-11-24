@@ -35,7 +35,7 @@ import restaurante.Platillo;
  * @author carlos
  */
 public class XmlParser {
-    public static String xmlFilePath="..\\RestaurantePOO\\XML";
+    public static String xmlFilePath="C:\\Users\\Edgar\\Desktop\\Varios\\Fabri\\Java\\Restaurante\\RestaurantePOO\\XML\\XML.xml";
     /**
      * Método encargado de crear un XML desde cero a partir de un ArrayList de platillos
      * @param Platillos
@@ -43,23 +43,26 @@ public class XmlParser {
      */
     public static void  CrearXML(ArrayList <Platillo> Platillos) 
     {
-      
+        System.out.println(Platillos.size());
         try
         {
+            
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 
             DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
 
             Document document = documentBuilder.newDocument();
             
-            Element root = document.createElement("Platillos Restaurante");
+            Element root = document.createElement("PlatillosRestaurante");
+            
+            document.appendChild(root);
             
             for (Platillo comida:Platillos) 
             {
                 Element MenuItem=document.createElement("Platillo");
-                Attr nomb=document.createAttribute("Nombre");
-                nomb.setNodeValue(comida.getNombre());
-                MenuItem.setAttributeNode(nomb);
+                Element nomb=document.createElement("Nombre");
+                nomb.appendChild(document.createTextNode(comida.getNombre()));
+                MenuItem.appendChild(nomb);
                 Element cod=document.createElement("Codigo");
                 cod.appendChild(document.createTextNode(comida.getCodigo()));
                 MenuItem.appendChild(cod);
