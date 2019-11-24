@@ -8,6 +8,7 @@ package GUI;
 import java.util.ArrayList;
 import restaurante.Platillo;
 import restaurante.Restaurante;
+import restaurante.XmlParser;
 
 /**
  *
@@ -117,6 +118,7 @@ public class habilitarPlatillo extends javax.swing.JFrame {
             if (plato.getCodigo().equals(codigo)){
                 plato.setActivo(false);
                 modificaPlatillo.infoBox("Platillo deshabilitado","Mensaje");
+                XmlParser.CrearXML(Menu);
                 return;
             }
             modificaPlatillo.infoBox("No existen platillos con el código indicado","Mensaje");
@@ -131,6 +133,7 @@ public class habilitarPlatillo extends javax.swing.JFrame {
             if (plato.getCodigo().equals(codigo)){
                 plato.setActivo(true);
                 modificaPlatillo.infoBox("Platillo habilitado","Mensaje");
+                XmlParser.CrearXML(Menu);
                 return;
             }
             modificaPlatillo.infoBox("No existen platillos con el código indicado","Mensaje");

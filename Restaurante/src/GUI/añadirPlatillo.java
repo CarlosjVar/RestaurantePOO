@@ -5,8 +5,14 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import org.xml.sax.SAXException;
 import restaurante.*;
 
 /**
@@ -314,6 +320,7 @@ public class añadirPlatillo extends javax.swing.JFrame {
         for (Platillo plato : Menu){
             if (plato.getCodigo().equals(codigo)){
                 plato.setActivo(habilitado);
+                break;
             }
         }
         añadirPlatillo.infoBox("Platillo añadido","Mensaje");

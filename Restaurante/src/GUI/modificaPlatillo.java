@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 package GUI;
+import java.io.IOException;
 import restaurante.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -288,17 +294,22 @@ public class modificaPlatillo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String tipo = jComboBox1.getSelectedItem().toString();
-        if (tipo == "Entrada"){
-            tipo = "ENT";
-        }
-        else if (tipo == "Plato fuerte"){
-            tipo = "PRN";
-        }
-        else if (tipo == "Postre"){
-            tipo = "PTR";
-        }
-        else {
+        if (null == tipo){
             tipo = "BEB";
+        }
+        else switch (tipo) {
+            case "Entrada":
+                tipo = "ENT";
+                break;
+            case "Plato fuerte":
+                tipo = "PRN";
+                break;
+            case "Postre":
+                tipo = "PTR";
+                break;
+            default:
+                tipo = "BEB";
+                break;
         }
         String codigo = tipo + "-" + jTextField1.getText();
         String nombre = jTextField2.getText();
@@ -315,8 +326,9 @@ public class modificaPlatillo extends javax.swing.JFrame {
             Restaurante.getInstance().AgregarPlatillo(codigo,descripcion,racion,calorias,precio,nombre);
             ArrayList <Platillo> Menu =  Restaurante.getInstance().getMenu();
             for (Platillo plato : Menu){
-                if (plato.getCodigo() == codigo){
+                if (plato.getCodigo().equals(codigo)){
                     plato.setActivo(habilitado);
+                    break;
                 }
             }
             añadirPlatillo.infoBox("Platillo modificado","Mensaje");

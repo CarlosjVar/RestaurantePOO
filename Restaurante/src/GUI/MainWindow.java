@@ -16,13 +16,14 @@ import java.util.ArrayList;
  */
 public class MainWindow extends javax.swing.JFrame {
     
-    private Restaurante restaurante = Restaurante.getInstance();
+    private  Restaurante rediPicsa = Restaurante.getInstance();
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+        XmlParser.CargarXML(rediPicsa.getMenu(),rediPicsa);
     }
 
     /**
@@ -251,7 +252,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         borrarPlatillo ventana = new borrarPlatillo();
-        ventana.setVisible(true);
+        ventana.setVisible(true);        
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed

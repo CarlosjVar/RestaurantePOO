@@ -147,7 +147,7 @@ public class Restaurante implements Observer {
         rediPicsa.setMontoExpress(nuevMonto);
     }
 
-    public ArrayList getMenu() {
+    public ArrayList<Platillo> getMenu() {
         return Menu;
     }
 
