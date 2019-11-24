@@ -30,7 +30,7 @@ public class Restaurante implements Observer {
         return RediPicsa;
     }
     
-    public void AgregarPlatillo(String Codigo, String Descripcion, int Racion, float Calorias, int Precio, boolean activo, int Ventas, String nombre) {
+    public void AgregarPlatillo(String Codigo, String Descripcion, int Racion, float Calorias, int Precio, String nombre) {
         Restaurante rediPicsa=getInstance();
         boolean esta=false;
         for(int i=0; i<rediPicsa.Menu.size();i++)
@@ -41,7 +41,7 @@ public class Restaurante implements Observer {
         }
         if(!esta)
         {
-            Platillo comida=new Platillo(Codigo, Descripcion, Racion, Calorias, Precio, activo, Ventas, nombre);
+            Platillo comida=new Platillo(Codigo, Descripcion, Racion, Calorias, Precio, nombre);
             rediPicsa.Menu.add(comida);
         }
     }
@@ -79,7 +79,7 @@ public class Restaurante implements Observer {
         }
         if(!esta)
         {
-            Platillo comida=new Platillo(Codigo, Descripcion, Racion, Calorias, Precio, activo, Ventas, nombre);
+            Platillo comida=new Platillo(Codigo, Descripcion, Racion, Calorias, Precio, nombre);
             rediPicsa.Menu.add(comida);
         }
     }
@@ -170,5 +170,7 @@ public class Restaurante implements Observer {
     public void Operation1() {
         // TODO implement here
     }
-
+    
+        
+  
 }

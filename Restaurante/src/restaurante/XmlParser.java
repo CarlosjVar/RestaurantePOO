@@ -26,6 +26,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.util.ArrayList;
 import javax.xml.transform.TransformerConfigurationException;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import restaurante.Platillo;
 /**
@@ -33,7 +35,7 @@ import restaurante.Platillo;
  * @author carlos
  */
 public class XmlParser {
-    
+    public static String xmlFilePath="..\\RestaurantePOO\\XML";
     /**
      * Método encargado de crear un XML desde cero a partir de un ArrayList de platillos
      * @param Platillos
@@ -44,7 +46,6 @@ public class XmlParser {
       
         try
         {
-            String xmlFilePath="..\\RestaurantePOO\\XML";
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 
             DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
@@ -62,7 +63,7 @@ public class XmlParser {
                 Element cod=document.createElement("Codigo");
                 cod.appendChild(document.createTextNode(comida.getCodigo()));
                 MenuItem.appendChild(cod);
-                Element desc=document.createElement("Descripciun");
+                Element desc=document.createElement("Descripcion");
                 desc.appendChild(document.createTextNode(comida.getDescripcion()));
                 MenuItem.appendChild(desc);
                 Element Rac=document.createElement("Racion");
@@ -115,7 +116,7 @@ public class XmlParser {
         Element cod=document.createElement("Codigo");
         cod.appendChild(document.createTextNode(comida.getCodigo()));
         MenuItem.appendChild(cod);
-        Element desc=document.createElement("Descripciun");
+        Element desc=document.createElement("Descripcion");
         desc.appendChild(document.createTextNode(comida.getDescripcion()));
         MenuItem.appendChild(desc);
         Element Rac=document.createElement("Racion");
@@ -136,11 +137,40 @@ public class XmlParser {
     }
 
     /**
-     * 
+     *Método encargado de cargar platillos desde el xml a el restaurante
+     * @param PlatillosRestaurante
+     * @param redipicsa 
      */
-    public void CargarXML(ArrayList<Platillo> PlatillosRestaurante) {      
-        
-        
+    public void CargarXML(ArrayList<Platillo> PlatillosRestaurante,Restaurante redipicsa) {      
+        try {
+            File inputFile = new File(xmlFilePath);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+            NodeList nList = doc.getElementsByTagName("Platillo");
+            
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+               Node nNode = nList.item(temp);
+               if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                redipicsa.AgregarPlatillo(eElement.getElementsByTagName("Codigo").item(0).getTextContent()
+                ,eElement.getElementsByTagName("Descripcion").item(0).getTextContent(),
+                Integer.parseInt(eElement.getElementsByTagName("Racion").item(0).getTextContent()),
+                Float.parseFloat(eElement.getElementsByTagName("Calorias").item(0).getTextContent()),
+                Integer.parseInt(eElement.getElementsByTagName("Precio").item(0).getTextContent()),
+                eElement.getElementsByTagName("Nombre").item(0).getTextContent());
+               }
+               
+                 
+            }
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
+      }
     }
-}
+   
+        
+    
+
 
