@@ -25,7 +25,6 @@ public class añadirPlatillo extends javax.swing.JFrame {
      * Creates new form añadirPlatillo
      */
     
-    
     public añadirPlatillo() {
         initComponents();
     }

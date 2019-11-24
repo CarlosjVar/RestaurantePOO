@@ -16,19 +16,18 @@ public class Pedido {
 
     protected int ConsecutivoPedido;
     
-    private ArrayList <Platillo> Menu;
+    private ArrayList <Platillo> compras;
     
     public Pedido(String Fecha, String ClientePedido, int ConsecutivoPedido) {
         this.Fecha = Fecha;
         this.ClientePedido = ClientePedido;
         this.ConsecutivoPedido = ConsecutivoPedido;
-        this.Menu=new ArrayList<Platillo>();
+        this.compras=new ArrayList<Platillo>();
     }
-    
     public Pedido() {
-        this.Menu=new ArrayList<Platillo>();
-    }  
-    
+        this.compras=new ArrayList<Platillo>();
+    }
+        
     public String getFecha() {
         return Fecha;
     }
@@ -61,11 +60,11 @@ public class Pedido {
         this.ConsecutivoPedido = ConsecutivoPedido;
     }
 
-    public ArrayList<Platillo> getMenu() {
-        return Menu;
+    public ArrayList<Platillo> getCompras() {
+        return compras;
     }
 
-    public void setMenu(ArrayList<Platillo> Menu) {
-        this.Menu = Menu;
+    public void setCompras(ArrayList<Platillo> Menu) {
+        this.compras = Menu;
     }
 }
