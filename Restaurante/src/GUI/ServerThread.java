@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import restaurante.Platillo;
+import restaurante.Restaurante;
 
 /**
  *
@@ -26,26 +28,36 @@ public class ServerThread implements Runnable {
         this.socket = sock;
         this.OutStream=new ObjectOutputStream(socket.getOutputStream());
         this.InStream=new ObjectInputStream(socket.getInputStream());
+        
     }
     
     @Override
     public void run(){
         Mensaje informacion;
         try{
-            while((informacion =(Mensaje)InStream.readObject())!=null){
-                System.out.print(informacion.message);
-                Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19, "salchipapa");
-                Platillo Chorizo=new Platillo("Soy Chorizo","Chorizo soy",12, (float) 0.5,19, "chorizin");
-                if(informacion.message.equals("Fabrizio se caga y no le llega a un Heilo"))
-                {
-                    OutStream.writeObject(Salchichón);
+        while((informacion =(Mensaje)InStream.readObject())!=null){
+            System.out.print(informacion.message);
+            Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19, "salchipapa");
+            Platillo Chorizo=new Platillo("Soy Chorizo","Chorizo soy",12, (float) 0.5,19, "chorizin");
+            if(informacion.message.equals("Mierdu"))
+            {
+                ArrayList<Platillo>MenuGeneral=Restaurante.getInstance().getMenu();
+                ArrayList<Platillo>Menusote = new ArrayList<Platillo>();
+                for(Platillo plato:MenuGeneral){
+                    if(plato.isActivo())
+                    {
+                        Menusote.add(plato);
+                    }
                 }
-                else if(informacion.message.equals("Fabrizio se caga y no le llega a un destiny"))
-                {
-                    OutStream.writeObject(Chorizo);
-                }
+                Mensaje mensaje=new Mensaje(Menusote);
+                OutStream.writeObject(mensaje);
             }
-            socket.close();
+            else if(informacion.message.equals("Vergenta")){
+                
+                
+            }
+        }
+        socket.close();
         }catch(EOFException e){
             
         }catch(IOException e){

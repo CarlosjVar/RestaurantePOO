@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/restaurante/ClienteRestaurante.java</file>
+            <file>file:/F:/Java/Progra3/RestaurantePOO/ClienteRestaurante/src/GUI/MainWindow.java</file>
+            <file>file:/F:/Java/Progra3/RestaurantePOO/ClienteRestaurante/src/restaurante/Platillo.java</file>
+            <file>file:/F:/Java/Progra3/RestaurantePOO/ClienteRestaurante/src/GUI/Mensaje.java</file>
+            <file>file:/F:/Java/Progra3/RestaurantePOO/ClienteRestaurante/src/restaurante/Bebida.java</file>
+            <file>file:/F:/Java/Progra3/RestaurantePOO/ClienteRestaurante/src/GUI/SocketCliente.java</file>
+            <file>file:/F:/Java/Progra3/RestaurantePOO/ClienteRestaurante/src/GUI/VentanaCompra.java</file>
         </group>
     </open-files>
 </project-private>

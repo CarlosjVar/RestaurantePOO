@@ -16,15 +16,18 @@ public class Restaurante implements Observer {
     private ArrayList <Platillo> Menu;
     
     private static Restaurante RediPicsa=null;
+        
+    private ArrayList <String> registro;
     
     private Restaurante() {
     this.listaVentas = new ArrayList<Platillo>();
     this.MontoExpress = 0;
     this.MontoEmpaque = 0;
     this.Menu = new ArrayList<Platillo>();
+    this.registro=new ArrayList<String>()
     }
 
-    private static Restaurante getInstance(){
+    public static Restaurante getInstance(){
         if(RediPicsa==null)
             RediPicsa=new Restaurante();
         return RediPicsa;
