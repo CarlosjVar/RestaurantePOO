@@ -6,6 +6,7 @@
 package GUI;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import restaurante.Platillo;
 
 /**
@@ -18,9 +19,12 @@ public class Mensaje implements Serializable {
    
     public Platillo peticion;
     
+    public ArrayList Menu;
+    
     public Mensaje(String mensaje, Platillo peticion) {
         this.message = mensaje;
         this.peticion = peticion;
+        this.Menu= new ArrayList<Platillo>();
     }
     
     public Mensaje(String mensaje) {
@@ -31,6 +35,10 @@ public class Mensaje implements Serializable {
         this.peticion = peticion;
     }
    
+    public Mensaje(ArrayList Ana_Rey)
+    {
+        this.Menu=Ana_Rey;
+    }
 
     public Platillo getPeticion() {
         return peticion;
@@ -47,5 +55,4 @@ public class Mensaje implements Serializable {
     public void setMessage(String message) {
         this.message = message;
     }
-
 }
