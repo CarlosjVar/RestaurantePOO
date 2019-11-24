@@ -41,7 +41,7 @@ class SocketCliente{
            OutStream.writeObject(mensaje);
            Platillo platilloX=(Platillo)InStream.readObject();
            System.out.print(platilloX.getDescripcion());
-           
+           socket.close();
         }
     }
 //"Fabrizio se caga y no le llega a un destiny"
