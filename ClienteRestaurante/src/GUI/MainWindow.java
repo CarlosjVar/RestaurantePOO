@@ -5,27 +5,23 @@
  */
 package GUI;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import restaurante.Platillo;
 
 /**
  *
  * @author Fabrizio
  */
-public class ClienteGUI extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form ClienteGUI
+     * Creates new form MainWindow
      */
-    public ClienteGUI() throws IOException, ClassNotFoundException {
+    public MainWindow() {
+        initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +51,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Naranjeño pvto");
+        jButton3.setText("Naranjeño Pvto");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -67,62 +63,61 @@ public class ClienteGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
-                .addContainerGap(153, Short.MAX_VALUE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(44, 44, 44)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGap(61, 61, 61)
                 .addComponent(jButton2)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(60, 60, 60))
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            // TODO add your handling code here:
+        // TODO add your handling code here:
+         try {
             SocketCliente sockt=new SocketCliente();
             sockt.mandarSignal("Fabrizio se caga y no le llega a un destiny");
         } catch (IOException ex) {
-            Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try {
-            // TODO add your handling code here:
             SocketCliente sockt=new SocketCliente();
             sockt.mandarSignal("Fabrizio se caga y no le llega a un Heilo");
         } catch (IOException ex) {
-            Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        System.out.println("\nJoseph + Pia = Amor \nte la creiste wer xdxd");
+         System.out.println("\nJoseph + Pia = Amor \nte la creiste wer xdxd");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws IOException, ClassNotFoundException {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -136,31 +131,24 @@ public class ClienteGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClienteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new ClienteGUI().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new MainWindow().setVisible(true);
             }
         });
-        
-        
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -168,33 +156,3 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }
-    class SocketCliente{
-        
-        Socket socket;
-        public SocketCliente() throws IOException, ClassNotFoundException
-        {
-            //this.socket=new Socket("127.0.0.1",6969);
-//            ObjectOutputStream OutStream=new ObjectOutputStream(socket.getOutputStream());
-//            ObjectInputStream InStream=new ObjectInputStream(socket.getInputStream());
-//            Mensaje mensaje=new Mensaje("Fabrizio se caga y no le llega a un destiny");
-//            OutStream.writeObject(mensaje);
-//            Platillo platilloX=(Platillo)InStream.readObject();
-//            System.out.print(platilloX.getDescripcion());
-//            OutStream.close();
-            //socket.close();
-        }
-        public void mandarSignal(String info) throws IOException, ClassNotFoundException{
-           this.socket=new Socket("127.0.0.1",6969);
-           ObjectOutputStream OutStream=new ObjectOutputStream(this.socket.getOutputStream());
-           ObjectInputStream InStream=new ObjectInputStream(this.socket.getInputStream());
-//            BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-//            String readerInput=buffer.readLine();
-           Mensaje mensaje=new Mensaje(info);
-           OutStream.reset();
-           OutStream.writeObject(mensaje);
-           Platillo platilloX=(Platillo)InStream.readObject();
-           System.out.print(platilloX.getDescripcion());
-           
-        }
-    }
-//"Fabrizio se caga y no le llega a un destiny"
