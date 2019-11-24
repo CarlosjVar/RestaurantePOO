@@ -4,23 +4,20 @@
  * and open the template in the editor.
  */
 package GUI;
-
+import restaurante.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import restaurante.*;
 
 /**
  *
  * @author Personal
  */
-public class añadirPlatillo extends javax.swing.JFrame {
+public class modificaPlatillo extends javax.swing.JFrame {
 
     /**
-     * Creates new form añadirPlatillo
+     * Creates new form modificaPlatillo
      */
-    
-    
-    public añadirPlatillo() {
+    public modificaPlatillo() {
         initComponents();
     }
 
@@ -33,15 +30,8 @@ public class añadirPlatillo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -51,11 +41,70 @@ public class añadirPlatillo extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Añadir platillo");
+        setTitle("Modificar platillo");
+
+        jTextField4.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jButton1.setText("Modificar platillo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel6.setText("Porciones");
+
+        jLabel7.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel7.setText("Calorías por ración:");
+
+        jTextField5.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel8.setText("Kcal");
+
+        jLabel9.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel9.setText("Precio:");
+
+        jTextField7.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel10.setText("Colones");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         jLabel1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jLabel1.setText("Código numérico:");
@@ -94,55 +143,24 @@ public class añadirPlatillo extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jLabel5.setText("Ración:");
 
-        jTextField4.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel6.setText("Porciones");
-
-        jLabel7.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel7.setText("Calorías por ración:");
-
-        jTextField5.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel8.setText("Kcal");
-
-        jLabel9.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel9.setText("Precio:");
-
-        jTextField7.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel10.setText("Colones");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
         jRadioButton1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jRadioButton1.setText("Habilitar platillo");
 
-        jButton1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jButton1.setText("Añadir platillo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField3.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel11.setText("Código numérico anterior:");
+
+        jButton2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jButton2.setText("Rellenar datos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -151,64 +169,75 @@ public class añadirPlatillo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(86, 86, 86)
+                                .addGap(76, 76, 76)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel6))
+                            .addComponent(jLabel7)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGap(77, 77, 77)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton1)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(66, 66, 66))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(77, 77, 77)
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButton1)
-                                            .addComponent(jButton1)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel8)
-                                                    .addComponent(jLabel10)))))))
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel10)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGap(96, 96, 96)
+                                            .addGap(86, 86, 86)
                                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGap(81, 81, 81)
+                                            .addGap(71, 71, 71)
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 60, Short.MAX_VALUE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jButton1)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,11 +275,66 @@ public class añadirPlatillo extends javax.swing.JFrame {
                 .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String tipo = jComboBox1.getSelectedItem().toString();
+        if (tipo == "Entrada"){
+            tipo = "ENT";
+        }
+        else if (tipo == "Plato fuerte"){
+            tipo = "PRN";
+        }
+        else if (tipo == "Postre"){
+            tipo = "PTR";
+        }
+        else {
+            tipo = "BEB";
+        }
+        String codigo = tipo + "-" + jTextField1.getText();
+        String nombre = jTextField2.getText();
+        String descripcion = jTextArea1.getText();
+        int racion = Integer.parseInt(jTextField4.getText());
+        float calorias =  Float.parseFloat(jTextField5.getText());
+        int precio = Integer.parseInt(jTextField7.getText());
+        boolean habilitado;
+        habilitado = jRadioButton1.isSelected();
+        boolean encontrado = Restaurante.getInstance().BorrarPlatillo(codigo);
+        if (!encontrado){
+            añadirPlatillo.infoBox("No existen platillos con el código indicado","Mensaje");
+        }else{
+            Restaurante.getInstance().AgregarPlatillo(codigo,descripcion,racion,calorias,precio,nombre);
+            ArrayList <Platillo> Menu =  Restaurante.getInstance().getMenu();
+            for (Platillo plato : Menu){
+                if (plato.getCodigo() == codigo){
+                    plato.setActivo(habilitado);
+                }
+            }
+            añadirPlatillo.infoBox("Platillo modificado","Mensaje");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -264,60 +348,47 @@ public class añadirPlatillo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    public static void infoBox(String infoMessage, String titleBar)
-    {
-        JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String tipo = jComboBox1.getSelectedItem().toString();
-        if (null == tipo){
-            tipo = "BEB";
-        }
-        else switch (tipo) {
-            case "Entrada":
-                tipo = "ENT";
-                break;
-            case "Plato fuerte":
-                tipo = "PRN";
-                break;
-            case "Postre":
-                tipo = "PTR";
-                break;
-            default:
-                tipo = "BEB";
-                break;
-        }
-        String codigo = tipo + "-" + jTextField1.getText();
-        String nombre = jTextField2.getText();
-        String descripcion = jTextArea1.getText();
-        int racion = Integer.parseInt(jTextField4.getText());
-        float calorias =  Float.parseFloat(jTextField5.getText());
-        int precio = Integer.parseInt(jTextField7.getText());
-        boolean habilitado;
-        habilitado = jRadioButton1.isSelected();
-        Restaurante.getInstance().AgregarPlatillo(codigo,descripcion,racion,calorias,precio,nombre);
-        ArrayList <Platillo> Menu =  Restaurante.getInstance().getMenu();
-        for (Platillo plato : Menu){
+        String codigo = jTextField3.getText();
+        ArrayList <Platillo> Menu = Restaurante.getInstance().getMenu();
+        for (Platillo plato : Menu ){
             if (plato.getCodigo().equals(codigo)){
-                plato.setActivo(habilitado);
+                String tipo = plato.getCodigo().substring(0,2);
+                if (null == tipo){
+                    jComboBox1.setSelectedIndex(3);
+                }
+                else switch (tipo) {
+                    case "ENT":
+                        jComboBox1.setSelectedIndex(0);
+                        break;
+                    case "PRN":
+                        jComboBox1.setSelectedIndex(1);
+                        break;
+                    case "PTR":
+                        jComboBox1.setSelectedIndex(2);
+                        break;
+                    default:
+                        jComboBox1.setSelectedIndex(3);
+                        break;
+                }
+                jTextField1.setText(plato.getCodigo().substring(4));
+                jTextField2.setText(plato.getNombre());
+                jTextArea1.setText(plato.getDescripcion());
+                jTextField4.setText(Integer.toString(plato.getRacion()));
+                jTextField5.setText(Float.toString(plato.getCalorias()));
+                jTextField7.setText(Integer.toString(plato.getPrecio()));
+                jRadioButton1.setSelected(plato.isActivo());
+                modificaPlatillo.infoBox("Datos cargados","Mensaje");
+                return;
             }
         }
-        añadirPlatillo.infoBox("Platillo añadido","Mensaje");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        modificaPlatillo.infoBox("No existen platillos con el código indicado","Mensaje");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,29 +407,31 @@ public class añadirPlatillo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(añadirPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificaPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(añadirPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificaPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(añadirPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificaPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(añadirPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificaPlatillo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new añadirPlatillo().setVisible(true);
+                new modificaPlatillo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -372,6 +445,7 @@ public class añadirPlatillo extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField7;

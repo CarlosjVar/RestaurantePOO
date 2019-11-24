@@ -262,17 +262,21 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+        modificaPlatillo ventana = new modificaPlatillo();
+        ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
+        habilitarPlatillo ventana = new habilitarPlatillo();
+        ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
     ArrayList <Platillo> Menu =  Restaurante.getInstance().getMenu();
         for (Platillo plato : Menu){
-            System.out.println(plato.getCodigo());
+            System.out.println(plato.getCodigo() + plato.isActivo());
         }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 

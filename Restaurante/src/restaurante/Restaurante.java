@@ -47,7 +47,7 @@ public class Restaurante implements Observer {
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getCodigo()==Codigo)
+           if(plat.getCodigo().equals(Codigo))
                 esta=true;
         }
         if(!esta)
@@ -65,7 +65,7 @@ public class Restaurante implements Observer {
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getCodigo()==codigo);
+           if(plat.getCodigo().equals(codigo));
                 rediPicsa.Menu.remove(i);
                 return true;
         }
@@ -80,14 +80,14 @@ public class Restaurante implements Observer {
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getCodigo()==Codigo);
+           if(plat.getCodigo().equals(Codigo));
                 rediPicsa.Menu.remove(i);
         }
         boolean esta=false;
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
            Platillo plat=rediPicsa.Menu.get(i);
-           if(plat.getCodigo()==Codigo);
+           if(plat.getCodigo().equals(Codigo));
                 esta=true;
         }
         if(!esta)
@@ -104,7 +104,7 @@ public class Restaurante implements Observer {
         Restaurante rediPicsa=getInstance();
         for(int i=0; i<rediPicsa.Menu.size();i++)
         {
-           if(rediPicsa.Menu.get(i).getNombre()==nombre);{
+           if(rediPicsa.Menu.get(i).getNombre().equals(nombre));{
                 if(rediPicsa.Menu.get(i).isActivo()){
                     rediPicsa.Menu.get(i).setActivo(false);
                 }
