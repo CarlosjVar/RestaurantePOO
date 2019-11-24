@@ -33,8 +33,8 @@ public class ServerThread implements Runnable {
         try{
             while((informacion =(Mensaje)InStream.readObject())!=null){
                 System.out.print(informacion.message);
-                Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19,true,23, "salchipapa");
-                Platillo Chorizo=new Platillo("Soy Chorizo","Chorizo soy",12, (float) 0.5,19,true,23, "chorizin");
+                Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19, "salchipapa");
+                Platillo Chorizo=new Platillo("Soy Chorizo","Chorizo soy",12, (float) 0.5,19, "chorizin");
                 if(informacion.message.equals("Fabrizio se caga y no le llega a un Heilo"))
                 {
                     OutStream.writeObject(Salchichón);
