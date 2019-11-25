@@ -10,8 +10,6 @@ public class Pedido {
     
     protected String Fecha;
 
-
-
     protected String ClientePedido;
 
     protected int ConsecutivoPedido;
@@ -35,8 +33,6 @@ public class Pedido {
     public void setFecha(String Fecha) {
         this.Fecha = Fecha;
     }
-
-    
 
     public String getClientePedido() {
         return ClientePedido;
