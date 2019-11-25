@@ -39,10 +39,17 @@ public class reportePedidos extends javax.swing.JFrame implements Observer{
                 else{
                     fila[0] = "En sitio";
                 }
-                fila[1] = pedido.getClientePedido();
+                try { 
+                    fila[1] = pedido.getClientePedido();
+                }catch (Exception e){
+                    fila[1] = "";
+                }
                 for (Platillo plato : pedido.getCompras()){
-                    if (plato.getNombre()!=null||!"null".equals(plato.getNombre()))
+                    try {
                         fila[2] += plato.getNombre() + "  ";
+                    } catch (Exception e) {
+                    }
+                    
                 }
                fila[3] = pedido.getFecha();
                model.addRow(fila);
