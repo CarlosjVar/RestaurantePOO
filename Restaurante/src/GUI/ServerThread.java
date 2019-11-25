@@ -63,7 +63,23 @@ public class ServerThread implements Runnable {
                 Mensaje mensaje=new Mensaje("Consecutivo",consecutivo);
                 OutStream.writeObject(mensaje);              
             }
-        }
+            else if(informacion.message.equals("Consecutivo2"))
+            {
+                int consecutivo=Restaurante.getConsecutivo();
+                Restaurante.setConsecutivo(Restaurante.getConsecutivo()+1);
+                Mensaje mensaje=new Mensaje("Consecutivo2",consecutivo);
+                mensaje.setExtra(Restaurante.getMontoExpress());
+                OutStream.writeObject(mensaje);              
+            }
+            else if(informacion.message.equals("Consecutivo3"))
+            {
+                int consecutivo=Restaurante.getConsecutivo();
+                Restaurante.setConsecutivo(Restaurante.getConsecutivo()+1);
+                Mensaje mensaje=new Mensaje("Consecutivo3",consecutivo);
+                mensaje.setPorcentaje(Restaurante.getMontoEmpaque());
+                OutStream.writeObject(mensaje);       
+            }
+                }
         socket.close();
         }catch(EOFException e){
             

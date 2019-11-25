@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import restaurante.Express;
+import restaurante.Llevado;
 
 /**
  *
@@ -45,7 +47,13 @@ class SocketCliente{
                 OutStream.reset();
                 OutStream.writeObject(mensaje);
             }
-            else
+            else if(info.equals("Consecutivo2"))
+            {
+                Mensaje mensaje=new Mensaje(info);
+                OutStream.reset();
+                OutStream.writeObject(mensaje);
+            }
+            else if(info.equals("Consecutivo3"))
             {
                 Mensaje mensaje=new Mensaje(info);
                 OutStream.reset();
@@ -60,6 +68,20 @@ class SocketCliente{
             else if("Consecutivo".equals(mensa.getMessage()))
             {
                 MainWindow.getPeticion().setConsecutivoPedido(mensa.Conse);
+            }
+            else if("Consecutivo2".equals(mensa.getMessage()))
+            {
+                MainWindow.getPeticion().setConsecutivoPedido(mensa.Conse);
+                 Express dog = (Express) MainWindow.getPeticion() ;
+                 dog.setCobro(mensa.extra);
+                 MainWindow.setPeticion(dog);
+            }
+            else if("Consecutivo3".equals(mensa.getMessage()))
+            {
+                MainWindow.getPeticion().setConsecutivoPedido(mensa.Conse);
+                Llevado dog=(Llevado) MainWindow.getPeticion();
+                dog.setEmpaque(mensa.getPorcentaje());
+                MainWindow.setPeticion(dog);
             }
             socket.close();
         }

@@ -125,7 +125,7 @@ public class PedidoNormal extends javax.swing.JFrame {
         }
         else
         {
-           PedidoNormal.infoBox("Ingrese un nombre por favor", "Erroe");
+           PedidoNormal.infoBox("Ingrese un nombre por favor", "Error");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

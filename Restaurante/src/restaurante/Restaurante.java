@@ -10,9 +10,9 @@ public class Restaurante implements Observer {
     private ArrayList <Pedido> pedidos;
     private ArrayList listaVentas;
 
-    private int MontoExpress;
+    private static int MontoExpress;
 
-    private int MontoEmpaque;
+    private static int MontoEmpaque;
     
     private ArrayList <Platillo> Menu;
     
@@ -185,7 +185,7 @@ public class Restaurante implements Observer {
         this.listaVentas = listaVentas;
     }
 
-    public int getMontoExpress() {
+    public  static int getMontoExpress() {
         return MontoExpress;
     }
 
@@ -193,7 +193,7 @@ public class Restaurante implements Observer {
         this.MontoExpress = MontoExpress;
     }
 
-    public int getMontoEmpaque() {
+    public static int getMontoEmpaque() {
         return MontoEmpaque;
     }
 
