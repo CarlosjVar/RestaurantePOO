@@ -15,7 +15,15 @@ public class Express extends Pedido {
     }
 
 
+    private int Cobro;
 
+    public int getCobro() {
+        return Cobro;
+    }
+
+    public void setCobro(int Cobro) {
+        this.Cobro = Cobro;
+    }
     private String Telefono;
     /**
      * 
@@ -61,6 +69,7 @@ public class Express extends Pedido {
         this.Fecha = Fecha;
     }
 
+   
 
     public String getClientePedido() {
         return ClientePedido;

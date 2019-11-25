@@ -32,6 +32,7 @@ public class MainWindow extends javax.swing.JFrame {
     
     public MainWindow() {
         initComponents();
+        Compra.setEnabled(false);
     }
 
     /**
@@ -43,39 +44,39 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Compra = new javax.swing.JButton();
+        llevar = new javax.swing.JButton();
+        express = new javax.swing.JButton();
+        local = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton4.setText("Iniciar Compra");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        Compra.setText("Iniciar Compra");
+        Compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                CompraActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Para llevar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        llevar.setText("Para llevar");
+        llevar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                llevarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Express");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        express.setText("Express");
+        express.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                expressActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Comer en local");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        local.setText("Comer en local");
+        local.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                localActionPerformed(evt);
             }
         });
 
@@ -88,11 +89,11 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(126, 126, 126)
-                .addComponent(jButton1)
+                .addComponent(llevar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(local)
                 .addGap(12, 12, 12)
-                .addComponent(jButton2)
+                .addComponent(express)
                 .addGap(0, 106, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,7 +102,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(102, 102, 102))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Compra, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(118, 118, 118))))
         );
         layout.setVerticalGroup(
@@ -110,20 +111,23 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Compra, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                    .addComponent(llevar)
+                    .addComponent(local)
+                    .addComponent(express))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void CompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompraActionPerformed
         // TODO add your handling code here:
+        llevar.setEnabled(false);
+        local.setEnabled(false);
+        express.setEnabled(false);
         VentanaCompra.getInstance().setVisible(true);
         try {
             SocketCliente sockt=new SocketCliente();
@@ -134,24 +138,38 @@ public class MainWindow extends javax.swing.JFrame {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
            
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_CompraActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void llevarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llevarActionPerformed
         // TODO add your handling code here:
         PedidoLLevado ventana=new PedidoLLevado();
         ventana.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        llevar.setEnabled(false);
+        local.setEnabled(false);
+        express.setEnabled(false);
+        Compra.setEnabled(true);
+    }//GEN-LAST:event_llevarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void expressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expressActionPerformed
         // TODO add your handling code here:
+        PedidoExpress pedido=new PedidoExpress();
+        pedido.setVisible(true);
+        llevar.setEnabled(false);
+        local.setEnabled(false);
+        express.setEnabled(false);
+        Compra.setEnabled(true);
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_expressActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void localActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localActionPerformed
         // TODO add your handling code here:
         PedidoNormal ventana=new PedidoNormal();
         ventana.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        llevar.setEnabled(false);
+        local.setEnabled(false);
+        express.setEnabled(false);
+        Compra.setEnabled(true);
+    }//GEN-LAST:event_localActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,10 +210,10 @@ public class MainWindow extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton Compra;
+    private javax.swing.JButton express;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton llevar;
+    private javax.swing.JButton local;
     // End of variables declaration//GEN-END:variables
 }

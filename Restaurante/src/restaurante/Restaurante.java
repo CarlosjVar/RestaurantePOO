@@ -8,7 +8,7 @@ import java.lang.String;
  */
 public class Restaurante implements Observer {
     private ArrayList <Pedido> pedidos;
-    private ArrayList listaVentas;
+    private ArrayList <Platillo> listaVentas;
 
     private static int MontoExpress;
 
@@ -177,7 +177,7 @@ public class Restaurante implements Observer {
         this.Menu = Menu;
     }
 
-    public ArrayList getListaVentas() {
+    public ArrayList<Platillo> getListaVentas() {
         return listaVentas;
     }
 

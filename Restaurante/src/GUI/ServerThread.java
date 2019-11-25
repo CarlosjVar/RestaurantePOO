@@ -36,7 +36,7 @@ public class ServerThread implements Runnable {
         Mensaje informacion;
         try{
         while((informacion =(Mensaje)InStream.readObject())!=null){
-            System.out.print(informacion.message);
+            System.out.println(informacion.message);
 
             if(informacion.message.equals("Mierdu"))
             {
@@ -53,14 +53,11 @@ public class ServerThread implements Runnable {
                 mensaje.setMessage("Menu");
                 OutStream.writeObject(mensaje);
             }
-            else if(informacion.message.equals("Vergenta")){
-                
-                
-            }
             else if (informacion.message.equals("Consecutivo")) {
                 int consecutivo=Restaurante.getConsecutivo();
                 Restaurante.setConsecutivo(Restaurante.getConsecutivo()+1);
                 Mensaje mensaje=new Mensaje("Consecutivo",consecutivo);
+                Restaurante.getInstance().getRegistro().add("Se ha creado un nuevo pedido");
                 OutStream.writeObject(mensaje);              
             }
             else if(informacion.message.equals("Consecutivo2"))
@@ -69,7 +66,8 @@ public class ServerThread implements Runnable {
                 Restaurante.setConsecutivo(Restaurante.getConsecutivo()+1);
                 Mensaje mensaje=new Mensaje("Consecutivo2",consecutivo);
                 mensaje.setExtra(Restaurante.getMontoExpress());
-                OutStream.writeObject(mensaje);              
+                OutStream.writeObject(mensaje);        
+                Restaurante.getInstance().getRegistro().add("Se ha creado un nuevo pedido");
             }
             else if(informacion.message.equals("Consecutivo3"))
             {
@@ -77,7 +75,40 @@ public class ServerThread implements Runnable {
                 Restaurante.setConsecutivo(Restaurante.getConsecutivo()+1);
                 Mensaje mensaje=new Mensaje("Consecutivo3",consecutivo);
                 mensaje.setPorcentaje(Restaurante.getMontoEmpaque());
-                OutStream.writeObject(mensaje);       
+                OutStream.writeObject(mensaje);  
+                Restaurante.getInstance().getRegistro().add("Se ha creado un nuevo pedido");
+            }
+            else if(informacion.message.equals("mandar"))
+            {
+                Restaurante.getInstance().getPedidos().add(informacion.getPeticion());
+                for(Platillo platillo:informacion.getPeticion().getCompras())
+                {
+                    if(Restaurante.getInstance().getListaVentas().isEmpty())
+                    {
+                        Restaurante.getInstance().getListaVentas().add(platillo);
+                    }
+                    else
+                    {
+                        for(Platillo platote:Restaurante.getInstance().getListaVentas())
+                        {
+                            if(platote.getCodigo().equals(platillo.getCodigo()))
+                            {
+                                platote.setVentas(platote.getVentas()+platillo.getVentas());
+                            }
+                        }
+                    }
+                 for(Platillo plato:Restaurante.getInstance().getMenu())
+                 {
+                     if(platillo.getCodigo().equals(plato.getCodigo()))
+                     {
+                         plato.setVentas(plato.getVentas()+platillo.getVentas());
+                         break;
+                     }
+                 }
+                 Restaurante.getInstance().getRegistro().add("Se ha vendido "+platillo.getNombre());
+                }
+                Mensaje mensaje=new Mensaje("((づ◔ ͜ʖ◔)づ)");
+                OutStream.writeObject(mensaje);  
             }
                 }
         socket.close();

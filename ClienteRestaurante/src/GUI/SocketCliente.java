@@ -60,6 +60,14 @@ class SocketCliente{
                 OutStream.reset();
                 OutStream.writeObject(mensaje);
             }
+            else if(info.equals("mandar"))
+            {
+                
+                Mensaje mensaje=new Mensaje(info);
+                mensaje.setPeticion(MainWindow.getPeticion());
+                OutStream.reset();
+                OutStream.writeObject(mensaje);
+            }
             Mensaje mensa=(Mensaje)InStream.readObject();
             System.out.println(mensa.Conse);
             System.out.print(mensa.getMessage());

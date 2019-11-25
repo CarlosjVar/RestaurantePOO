@@ -5,9 +5,13 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import restaurante.Pedido;
@@ -211,6 +215,8 @@ public class VentanaCompra extends javax.swing.JFrame {
         SPostres = new javax.swing.JSpinner();
         Terminar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        holi = new javax.swing.JLabel();
+        uwu = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -256,6 +262,8 @@ public class VentanaCompra extends javax.swing.JFrame {
         });
 
         jScrollPane2.setViewportView(jList1);
+
+        SEntradas.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Menu de Compras");
@@ -385,6 +393,12 @@ public class VentanaCompra extends javax.swing.JFrame {
             }
         });
 
+        SPF.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        SBeb.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+
+        SPostres.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
         Terminar.setText("Terminar Compra");
         Terminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,6 +412,12 @@ public class VentanaCompra extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+
+        holi.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        holi.setText("Holi");
+
+        uwu.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        uwu.setText("un 80 pls");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -439,8 +459,8 @@ public class VentanaCompra extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(77, 77, 77)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(CBPostres, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
@@ -455,8 +475,13 @@ public class VentanaCompra extends javax.swing.JFrame {
                                                 .addComponent(SEntradas, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(SPF, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(SBeb, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(Terminar, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(holi)
+                                                .addComponent(uwu))
+                                            .addGap(118, 118, 118)))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Terminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jLabel5)
@@ -509,23 +534,28 @@ public class VentanaCompra extends javax.swing.JFrame {
                             .addComponent(SPostres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(52, 52, 52)
                         .addComponent(Terminar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jLabel5))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(holi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(uwu))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jButton2))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
         );
 
@@ -597,8 +627,27 @@ public class VentanaCompra extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CBPostresActionPerformed
 
+    
+    public static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
     private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
 
+         try {
+            SocketCliente sockt=new SocketCliente();
+            sockt.mandarSignal("mandar");
+            VentanaCompra.infoBox("Se ha realizado su pedido exitosamente", "Sabías que uno de cada un computín tiene depresión");
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
+        
     }//GEN-LAST:event_TerminarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -615,15 +664,24 @@ public class VentanaCompra extends javax.swing.JFrame {
                     {
                         if(plato.getCodigo()==plat.getCodigo())
                         {
+                            MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SEntradas.getValue()));
+                            MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SEntradas.getValue());    
                             Esta=true;
-                            plato.setVentas(plato.getVentas()+(Integer)SPF.getValue());
+                            plato.setVentas(plato.getVentas()+(Integer)SEntradas.getValue());
+                            holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                            uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
                         }
                     }
                     if(!Esta)
                     {
+                    MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SEntradas.getValue()));
+                    MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SEntradas.getValue());    
+                    plat.setVentas((Integer)SEntradas.getValue());
                     MainWindow.getPeticion().getCompras().add(plat);
+                    holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                    uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
                     }
-                    model.addElement(CBPF.getSelectedItem().toString()+"- - - -"+ SPF.getValue().toString());
+                    model.addElement(CBEntradas.getSelectedItem().toString()+"   ((づ◔ ͜ʖ◔)づ)   "+ SEntradas.getValue().toString());
                     
                 }
             }
@@ -636,15 +694,26 @@ public class VentanaCompra extends javax.swing.JFrame {
                     {
                         if(plato.getCodigo()==plat.getCodigo())
                         {
+                            MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SPF.getValue()));
+                            MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SPF.getValue());    
                             Esta=true;
                             plato.setVentas(plato.getVentas()+(Integer)SPF.getValue());
+                            holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                            uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
+
                         }
                     }
                     if(!Esta)
                     {
+                    MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SPF.getValue()));
+                    MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SPF.getValue());    
+                    plat.setVentas((Integer)SPF.getValue());
                     MainWindow.getPeticion().getCompras().add(plat);
+                    holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                    uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
+
                     }
-                    model.addElement(CBPF.getSelectedItem().toString()+"- - - -"+ SPF.getValue().toString());
+                    model.addElement(CBPF.getSelectedItem().toString()+"   ((づ◔ ͜ʖ◔)づ)   "+ SPF.getValue().toString());
                 }
             }
         }else if(CBBeb.isEnabled()){
@@ -652,46 +721,68 @@ public class VentanaCompra extends javax.swing.JFrame {
                 boolean Esta=false;
                 if(plat.getCodigo() == null ? CBBeb.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBBeb.getSelectedItem().toString().substring(0, 7)))
                 {
-                    if(plat.getCodigo() == null ? CBPF.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBPF.getSelectedItem().toString().substring(0, 7)))
-                    {
+                   
+                    
                     for(Platillo plato:MainWindow.getPeticion().getCompras())
                        {
                             if(plato.getCodigo()==plat.getCodigo())
                             {
+                                MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SBeb.getValue()));
+                                MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SBeb.getValue());    
                                 Esta=true;
-                                plato.setVentas(plato.getVentas()+(Integer)SPF.getValue());
+                                plato.setVentas(plato.getVentas()+(Integer)SBeb.getValue());
+                                holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                                uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
+
                             }
                     }
                     if(!Esta)
                     {
+                        
+                    MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SBeb.getValue()));
+                    MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SBeb.getValue());    
+                    plat.setVentas((Integer)SBeb.getValue());
                     MainWindow.getPeticion().getCompras().add(plat);
                     }
-                    model.addElement(CBPF.getSelectedItem().toString()+"- - - -"+ SPF.getValue().toString());
+                    model.addElement(CBBeb.getSelectedItem().toString()+"   ((づ◔ ͜ʖ◔)づ)   "+ SBeb.getValue().toString());
+                    holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                    uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
+
                 }
-                }
+                
             }
         }else if(CBPostres.isEnabled()){
             for(Platillo plat:menuBusqueda){
                 boolean Esta=false;
                 if(plat.getCodigo() == null ? CBPostres.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBPostres.getSelectedItem().toString().substring(0, 7)))
                 {
-                    if(plat.getCodigo() == null ? CBPF.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBPF.getSelectedItem().toString().substring(0, 7)))
-                    {
+                                      
                     for(Platillo plato:MainWindow.getPeticion().getCompras())
                        {
                             if(plato.getCodigo()==plat.getCodigo())
                             {
+                                MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SPostres.getValue()));
+                                MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SPostres.getValue());
                                 Esta=true;
-                                plato.setVentas(plato.getVentas()+(Integer)SPF.getValue());
+                                plato.setVentas(plato.getVentas()+(Integer)SPostres.getValue());
+                                holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                                uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
+
                             }
                     }
                     if(!Esta)
                     {
+                    MainWindow.getPeticion().setCalorias( MainWindow.getPeticion().getCalorias()+((int)plat.getCalorias()*plat.getRacion()*(Integer)SPostres.getValue()));
+                    MainWindow.getPeticion().setValor( MainWindow.getPeticion().getValor()+plat.getPrecio()*(Integer)SPostres.getValue());
+                    plat.setVentas((Integer)SPostres.getValue());    
                     MainWindow.getPeticion().getCompras().add(plat);
+                    holi.setText("El precio total es "+Integer.toString(MainWindow.getPeticion().getValor()));
+                    uwu.setText("El total de calorías es: "+Integer.toString(MainWindow.getPeticion().getCalorias()));
+
                     }
-                    model.addElement(CBPF.getSelectedItem().toString()+"- - - -"+ SPF.getValue().toString());   
+                    model.addElement(CBPostres.getSelectedItem().toString()+"   ((づ◔ ͜ʖ◔)づ)   "+ SPostres.getValue().toString());   
                 }
-            }
+            
         }
         }
          jList1.setModel(model);
@@ -714,6 +805,7 @@ public class VentanaCompra extends javax.swing.JFrame {
     private javax.swing.JTable TablaBebidas;
     private javax.swing.JTable TablaPostres;
     private javax.swing.JButton Terminar;
+    private javax.swing.JLabel holi;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -740,5 +832,6 @@ public class VentanaCompra extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable tablaEntradas;
     private javax.swing.JTable tablaPF;
+    private javax.swing.JLabel uwu;
     // End of variables declaration//GEN-END:variables
 }

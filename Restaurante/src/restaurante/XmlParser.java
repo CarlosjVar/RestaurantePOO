@@ -105,7 +105,7 @@ public class XmlParser {
      * @throws IOException
      * @throws SAXException 
      */
-    public void ActualizarXML(Platillo comida) throws ParserConfigurationException, TransformerConfigurationException, TransformerException, IOException, SAXException {
+    public static void ActualizarXML(Platillo comida) throws ParserConfigurationException, TransformerConfigurationException, TransformerException, IOException, SAXException {
         String xmlFilePath="..\\RestaurantePOO\\XML";
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -144,7 +144,7 @@ public class XmlParser {
      * @param PlatillosRestaurante
      * @param redipicsa 
      */
-    public void CargarXML(ArrayList<Platillo> PlatillosRestaurante,Restaurante redipicsa) {      
+    public static void CargarXML(ArrayList<Platillo> PlatillosRestaurante,Restaurante redipicsa) {      
         try {
             File inputFile = new File(xmlFilePath);
                             System.out.println("asduhgvkasdbjklnfl");

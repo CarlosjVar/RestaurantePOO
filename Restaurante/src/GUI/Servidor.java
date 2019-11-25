@@ -6,6 +6,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import restaurante.Express;
+import restaurante.Llevado;
+import restaurante.Pedido;
 import restaurante.Restaurante;
 import restaurante.XmlParser;
 
@@ -20,8 +23,7 @@ public class Servidor{
         ServerSocket serverSocket = new ServerSocket(PORT);
         Restaurante redipicsa=Restaurante.getInstance();
         XmlParser xml=new XmlParser();
-        xml.CargarXML(redipicsa.getMenu(), redipicsa);
-        System.out.println("asdacx");
+        xml.CargarXML(redipicsa.getMenu(), redipicsa);;       
         System.out.println("Servidor conectado");
         while(true){
             Socket socket=serverSocket.accept();//Mantiene la conexión

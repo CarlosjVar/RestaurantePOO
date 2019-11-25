@@ -65,7 +65,7 @@ public class reportePorcentaje extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jLabel2.setText("Relación porcentual de los tipos de pedidos:");

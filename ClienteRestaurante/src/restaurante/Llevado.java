@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * 
  */
-public class Llevado extends Pedido {
+public class Llevado extends Pedido  {
 
     
     private String Recolector;

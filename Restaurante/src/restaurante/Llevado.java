@@ -6,22 +6,29 @@ import java.util.*;
 /**
  * 
  */
-public class Llevado extends Pedido {
+public class Llevado extends Pedido  {
 
     
     private String Recolector;
     private String NumeroRecolector;
-    private int Valor;
 
-    public Llevado(String Recolector, String NumeroRecolector,String Fecha, String ClientePedido) {
+    public Llevado(String Recolector, String NumeroRecolector, String Fecha, String ClientePedido) {
         super(Fecha, ClientePedido);
         this.Recolector = Recolector;
         this.NumeroRecolector = NumeroRecolector;
-        this.Valor = 0;
     }
 
 
-    
+    private int empaque; 
+
+    public int getEmpaque() {
+        return empaque;
+    }
+
+    public void setEmpaque(int empaque) {
+        this.empaque = empaque;
+    }
+            
     public String getRecolector() {
         return Recolector;
     }
@@ -38,14 +45,6 @@ public class Llevado extends Pedido {
         this.NumeroRecolector = NumeroRecolector;
     }
 
-    public int getValor() {
-        return Valor;
-    }
-
-    public void setValor(int Valor) {
-        this.Valor = Valor;
-    }
-
     public String getFecha() {
         return Fecha;
     }
@@ -54,7 +53,7 @@ public class Llevado extends Pedido {
         this.Fecha = Fecha;
     }
 
-
+    
 
     public String getClientePedido() {
         return ClientePedido;

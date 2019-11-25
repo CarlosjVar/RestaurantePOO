@@ -322,6 +322,8 @@ public class añadirPlatillo extends javax.swing.JFrame {
                 break;
             }
         }
+        XmlParser.CrearXML(Restaurante.getInstance().getMenu());
+        
         añadirPlatillo.infoBox("Platillo añadido","Mensaje");
     }//GEN-LAST:event_jButton1ActionPerformed
 

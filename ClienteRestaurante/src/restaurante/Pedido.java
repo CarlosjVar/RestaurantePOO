@@ -1,13 +1,23 @@
 package restaurante;
 
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Pedido {
+public class Pedido implements Serializable {
+
+    public int getCalorias() {
+        return Calorias;
+    }
+
+    public void setCalorias(int Calorias) {
+        this.Calorias = Calorias;
+    }
     
+    private int Calorias=0;
     protected String Fecha;
     
     private int valor;
@@ -42,8 +52,6 @@ public class Pedido {
     public void setFecha(String Fecha) {
         this.Fecha = Fecha;
     }
-
-   
 
     public String getClientePedido() {
         return ClientePedido;
