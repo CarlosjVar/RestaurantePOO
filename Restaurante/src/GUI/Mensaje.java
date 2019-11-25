@@ -16,6 +16,22 @@ import restaurante.Platillo;
  */
 public class Mensaje implements Serializable {
 
+    public int getPorcentaje() {
+        return Porcentaje;
+    }
+
+    public void setPorcentaje(int Porcentaje) {
+        this.Porcentaje = Porcentaje;
+    }
+
+    public int getExtra() {
+        return extra;
+    }
+
+    public void setExtra(int extra) {
+        this.extra = extra;
+    }
+
     public ArrayList getMenu() {
         return Menu;
     }
@@ -29,8 +45,9 @@ public class Mensaje implements Serializable {
     public Pedido peticion;
     
     public ArrayList Menu;
-     public int Conse;
-
+    public int Conse;
+    public int Porcentaje;
+    public int extra;
     public int getConse() {
         return Conse;
     }

@@ -45,7 +45,7 @@ class SocketCliente{
                 OutStream.reset();
                 OutStream.writeObject(mensaje);
             }
-            else
+            else if(info.equals("Consecutivo2"))
             {
                 Mensaje mensaje=new Mensaje(info);
                 OutStream.reset();
