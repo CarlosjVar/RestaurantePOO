@@ -18,6 +18,16 @@ public class Restaurante implements Observer {
     private static Restaurante RediPicsa=null;
         
     private ArrayList <String> registro;
+
+    public static int getConsecutivo() {
+        return Consecutivo;
+    }
+
+    public static void setConsecutivo(int Consecutivo) {
+        Restaurante.Consecutivo = Consecutivo;
+    }
+    
+    public static int Consecutivo;
     
     private Restaurante() {
     this.listaVentas = new ArrayList<Platillo>();

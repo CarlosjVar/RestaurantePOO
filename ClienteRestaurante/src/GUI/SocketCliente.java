@@ -33,14 +33,33 @@ class SocketCliente{
             this.socket=new Socket("127.0.0.1",6969);
             ObjectOutputStream OutStream=new ObjectOutputStream(this.socket.getOutputStream());
             ObjectInputStream InStream=new ObjectInputStream(this.socket.getInputStream());
-            Mensaje mensaje=new Mensaje(info);
-            OutStream.reset();
-            OutStream.writeObject(mensaje);
+            if(info.equals("Consecutivo"))
+            {
+                Mensaje mensaje=new Mensaje(info);
+                OutStream.reset();
+                OutStream.writeObject(mensaje);
+            }
+            else if(info.equals("mierdu"))
+            {
+                Mensaje mensaje=new Mensaje(info);
+                OutStream.reset();
+                OutStream.writeObject(mensaje);
+            }
+            else
+            {
+                Mensaje mensaje=new Mensaje(info);
+                OutStream.reset();
+                OutStream.writeObject(mensaje);
+            }
             Mensaje mensa=(Mensaje)InStream.readObject();
             System.out.print(mensa.getMessage());
             if("Menu".equals(mensa.getMessage())){
                 System.out.println(mensa.getMenu().size());
                 VentanaCompra.getInstance().rellenarVentanas(mensa.getMenu());
+            }
+            else if("Consecutivo".equals(mensa.getMessage()))
+            {
+                MainWindow.getPeticion().setConsecutivoPedido(mensa.Conse);
             }
             socket.close();
         }

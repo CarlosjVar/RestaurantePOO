@@ -37,8 +37,7 @@ public class ServerThread implements Runnable {
         try{
         while((informacion =(Mensaje)InStream.readObject())!=null){
             System.out.print(informacion.message);
-            Platillo Salchichón=new Platillo("Soy salchichón","Salchichón soy",12, (float) 0.5,19, "salchipapa");
-            Platillo Chorizo=new Platillo("Soy Chorizo","Chorizo soy",12, (float) 0.5,19, "chorizin");
+
             if(informacion.message.equals("Mierdu"))
             {
                 ArrayList<Platillo>MenuGeneral=Restaurante.getInstance().getMenu();
@@ -57,6 +56,12 @@ public class ServerThread implements Runnable {
             else if(informacion.message.equals("Vergenta")){
                 
                 
+            }
+            else if (informacion.message.equals("Consecutivo")) {
+                int consecutivo=Restaurante.getConsecutivo();
+                Restaurante.setConsecutivo(Restaurante.getConsecutivo()+1);
+                Mensaje mensaje=new Mensaje("Consecutivo",consecutivo);
+                OutStream.writeObject(mensaje);              
             }
         }
         socket.close();

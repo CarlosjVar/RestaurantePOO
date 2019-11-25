@@ -13,8 +13,8 @@ public class Llevado extends Pedido {
     private String NumeroRecolector;
     private int Valor;
 
-    public Llevado(String Recolector, String NumeroRecolector, int Valor, String Fecha, String ClientePedido, int ConsecutivoPedido) {
-        super(Fecha, ClientePedido, ConsecutivoPedido);
+    public Llevado(String Recolector, String NumeroRecolector, int Valor, String Fecha, String ClientePedido) {
+        super(Fecha, ClientePedido);
         this.Recolector = Recolector;
         this.NumeroRecolector = NumeroRecolector;
         this.Valor = Valor;
@@ -54,13 +54,7 @@ public class Llevado extends Pedido {
         this.Fecha = Fecha;
     }
 
-    public static int getConsecutivo() {
-        return Consecutivo;
-    }
 
-    public static void setConsecutivo(int Consecutivo) {
-        Pedido.Consecutivo = Consecutivo;
-    }
 
     public String getClientePedido() {
         return ClientePedido;

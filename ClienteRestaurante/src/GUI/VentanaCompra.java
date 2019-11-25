@@ -19,6 +19,14 @@ import restaurante.Platillo;
  */
 public class VentanaCompra extends javax.swing.JFrame {
 
+    public Pedido getEleccion() {
+        return eleccion;
+    }
+
+    public void setEleccion(Pedido eleccion) {
+        this.eleccion = eleccion;
+    }
+
     public ArrayList<Platillo> getMenuBusqueda() {
         return menuBusqueda;
     }

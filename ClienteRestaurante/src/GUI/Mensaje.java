@@ -29,6 +29,15 @@ public class Mensaje implements Serializable {
     public Pedido peticion;
     
     public ArrayList Menu;
+    public int Conse;
+
+    public int getConse() {
+        return Conse;
+    }
+
+    public void setConse(int Conse) {
+        this.Conse = Conse;
+    }
     
     public Mensaje(String mensaje, Pedido peticion) {
         this.message = mensaje;
@@ -47,6 +56,11 @@ public class Mensaje implements Serializable {
     public Mensaje(ArrayList Ana_Rey)
     {
         this.Menu=Ana_Rey;
+    }
+    public Mensaje(String info,int Consecutivo)
+    {
+        this.message=info;
+        this.Conse=Consecutivo;
     }
 
     public Pedido getPeticion() {

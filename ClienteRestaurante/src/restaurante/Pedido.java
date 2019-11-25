@@ -18,10 +18,9 @@ public class Pedido {
     
     private ArrayList <Platillo> compras;
     
-    public Pedido(String Fecha, String ClientePedido, int ConsecutivoPedido) {
+    public Pedido(String Fecha, String ClientePedido) {
         this.Fecha = Fecha;
         this.ClientePedido = ClientePedido;
-        this.ConsecutivoPedido = ConsecutivoPedido;
         this.compras=new ArrayList<Platillo>();
     }
     public Pedido() {

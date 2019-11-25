@@ -10,7 +10,7 @@ public class Pedido {
     
     protected String Fecha;
 
-    protected static int Consecutivo;
+
 
     protected String ClientePedido;
 
@@ -18,10 +18,9 @@ public class Pedido {
     
     private ArrayList <Platillo> Menu;
     
-    public Pedido(String Fecha, String ClientePedido, int ConsecutivoPedido) {
+    public Pedido(String Fecha, String ClientePedido) {
         this.Fecha = Fecha;
         this.ClientePedido = ClientePedido;
-        this.ConsecutivoPedido = ConsecutivoPedido;
         this.Menu=new ArrayList<Platillo>();
     }
     
@@ -37,13 +36,7 @@ public class Pedido {
         this.Fecha = Fecha;
     }
 
-    public static int getConsecutivo() {
-        return Consecutivo;
-    }
-
-    public static void setConsecutivo(int Consecutivo) {
-        Pedido.Consecutivo = Consecutivo;
-    }
+    
 
     public String getClientePedido() {
         return ClientePedido;

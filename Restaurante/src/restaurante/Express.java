@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class Express extends Pedido {
 
-    public Express(String Telefono, String Direccion, int Valor, String Fecha, String ClientePedido, int ConsecutivoPedido) {
-        super(Fecha, ClientePedido, ConsecutivoPedido);
+    public Express(String Telefono, String Direccion, int Valor, String Fecha, String ClientePedido) {
+        super(Fecha, ClientePedido);
         this.Telefono = Telefono;
         this.Direccion = Direccion;
         this.Valor = Valor;
@@ -62,13 +62,6 @@ public class Express extends Pedido {
         this.Fecha = Fecha;
     }
 
-    public static int getConsecutivo() {
-        return Consecutivo;
-    }
-
-    public static void setConsecutivo(int Consecutivo) {
-        Pedido.Consecutivo = Consecutivo;
-    }
 
     public String getClientePedido() {
         return ClientePedido;
