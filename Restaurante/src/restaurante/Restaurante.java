@@ -189,16 +189,16 @@ public class Restaurante implements Observer {
         return MontoExpress;
     }
 
-    public void setMontoExpress(int MontoExpress) {
-        this.MontoExpress = MontoExpress;
+    public static void setMontoExpress(int MontoExpress) {
+        MontoExpress = MontoExpress;
     }
 
     public static int getMontoEmpaque() {
         return MontoEmpaque;
     }
 
-    public void setMontoEmpaque(int MontoEmpaque) {
-        this.MontoEmpaque = MontoEmpaque;
+    public static void setMontoEmpaque(int MontoEmpaque) {
+        MontoEmpaque = MontoEmpaque;
     }
 
     

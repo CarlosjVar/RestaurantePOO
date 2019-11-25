@@ -43,8 +43,6 @@ public class Pedido {
         this.Fecha = Fecha;
     }
 
-   
-
     public String getClientePedido() {
         return ClientePedido;
     }

@@ -11,34 +11,44 @@ import restaurante.*;
  *
  * @author Jos
  */
-public class reportePedidos extends javax.swing.JFrame {
+public class reportePorcentaje extends javax.swing.JFrame {
 
     /**
-     * Creates new form reportePedidos
+     * Creates new form reportePorcentaje
      */
-    public reportePedidos() {
+    public reportePorcentaje() {
         initComponents();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int totalPedidos = 0;
+        int paraRecoger = 0;
+        int express = 0;
+        int pedidosEnSitio = 0;
         for (Pedido pedido : Restaurante.getInstance().getPedidos()){
-                String[] fila;
-                fila = new String[4];
-                if (pedido instanceof Express){
-                    fila[0] = "Express";
-                }
-                else if (pedido instanceof Llevado){
-                    fila[0] = "Para recoger";
-                }
-                else{
-                    fila[0] = "En sitio";
-                }
-                fila[1] = pedido.getClientePedido();
-                for (Platillo plato : pedido.getCompras()){
-                    fila[2] += plato.getNombre() + "\n";
-                }
-               fila[3] = pedido.getFecha();
-               model.addRow(fila);
+            if (pedido instanceof Express){
+                    express++;
+            }
+            else if (pedido instanceof Llevado){
+                    paraRecoger++;
+            }
+            else{
+                    pedidosEnSitio++;
+            }
+            totalPedidos++;
         }
-        jTable1.setModel(model);
+        String[] fila = new String[3];
+        fila[0] = "En sitio";
+        fila[1] = Integer.toString(pedidosEnSitio);
+        fila[2] = Float.toString((pedidosEnSitio*100)/totalPedidos);
+        model.addRow(fila);
+        fila[0] = "Para recoger";
+        fila[1] = Integer.toString(paraRecoger);
+        fila[2] = Float.toString((paraRecoger*100)/totalPedidos);
+        model.addRow(fila);
+        fila[0] = "Express";
+        fila[1] = Integer.toString(express);
+        fila[2] = Float.toString((express*100)/totalPedidos);
+        jLabel1.setText(jLabel1.getText() + Integer.toString(totalPedidos) );
+        model.addRow(fila);
     }
 
     /**
@@ -53,14 +63,12 @@ public class reportePedidos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel2.setText("Pedidos del restaurante: ");
-        jLabel2.setToolTipText("Listado de pedidos");
-
-        jScrollPane4.setToolTipText("Listado de pedidos");
+        jLabel2.setText("Relación porcentual de los tipos de pedidos:");
 
         jTable1.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -68,14 +76,14 @@ public class reportePedidos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Tipo", "Cliente", "Platillos", "Fecha"
+                "Tipo", "Cantidad de ventas", "Porcentaje de ventas"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -90,6 +98,9 @@ public class reportePedidos extends javax.swing.JFrame {
         jTable1.setRowHeight(30);
         jScrollPane4.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel1.setText("Pedidos totales: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,9 +108,11 @@ public class reportePedidos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -107,10 +120,12 @@ public class reportePedidos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,25 +148,26 @@ public class reportePedidos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(reportePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reportePorcentaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(reportePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reportePorcentaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(reportePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reportePorcentaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(reportePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reportePorcentaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new reportePedidos().setVisible(true);
+                new reportePorcentaje().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
