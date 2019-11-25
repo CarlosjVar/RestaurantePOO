@@ -147,7 +147,6 @@ public class XmlParser {
     public static void CargarXML(ArrayList<Platillo> PlatillosRestaurante,Restaurante redipicsa) {      
         try {
             File inputFile = new File(xmlFilePath);
-                            System.out.println("asduhgvkasdbjklnfl");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
