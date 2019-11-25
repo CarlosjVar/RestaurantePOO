@@ -17,7 +17,7 @@ public class modificarEmpaque extends javax.swing.JFrame {
      */
     public modificarEmpaque() {
         initComponents();
-        jLabel2.setText(jLabel2.getText() + " " + Integer.toString(Restaurante.getInstance().getMontoEmpaque()));
+        jLabel2.setText(jLabel2.getText() + " " + Integer.toString(Restaurante.getMontoEmpaque()));
     }
     
     public static void infoBox(String infoMessage, String titleBar)
@@ -34,10 +34,15 @@ public class modificarEmpaque extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
+        jLabel3.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel3.setText("Porcentaje del empaquetado:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar/Modificar precio de empaque");
@@ -63,6 +68,9 @@ public class modificarEmpaque extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jLabel2.setText("Porcentaje del empaquetado anterior: ");
 
+        jLabel4.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel4.setText("%");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,14 +81,16 @@ public class modificarEmpaque extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(jButton1)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +100,8 @@ public class modificarEmpaque extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -106,7 +117,7 @@ public class modificarEmpaque extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int precio = Integer.parseInt(jTextField1.getText());
-        Restaurante.getInstance().setMontoEmpaque(precio);
+        Restaurante.setMontoEmpaque(precio);
         modificarEmpaque.infoBox("Precio del empaquetado registrado/modificado", "Registrar/modificar precio de empaque");    
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -149,6 +160,8 @@ public class modificarEmpaque extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

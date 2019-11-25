@@ -18,7 +18,7 @@ public class modificarExpress extends javax.swing.JFrame {
      */
     public modificarExpress() {
         initComponents();
-        jLabel2.setText(jLabel2.getText() + " " + Integer.toString(Restaurante.getInstance().getMontoExpress()));
+        jLabel2.setText(jLabel2.getText() + " " + Integer.toString(Restaurante.getMontoExpress()));
     }
 
     /**
@@ -107,7 +107,7 @@ public class modificarExpress extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int precio = Integer.parseInt(jTextField1.getText());
-        Restaurante.getInstance().setMontoExpress(precio);
+        Restaurante.setMontoExpress(precio);
         modificarExpress.infoBox("Precio del servicio express registrado/modificado", "Registrar/modificar precio de empaque");
     }//GEN-LAST:event_jButton1ActionPerformed
 

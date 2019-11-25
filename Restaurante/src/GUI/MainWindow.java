@@ -319,6 +319,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
         // TODO add your handling code here:
+        if (Restaurante.getInstance().getPedidos().isEmpty()){
+            MainWindow.infoBox("Aún no se han realizado pedidos","Mensaje");
+        }else{
+            reportePorcentaje ventana = new reportePorcentaje();
+            ventana.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
