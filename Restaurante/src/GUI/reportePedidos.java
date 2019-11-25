@@ -47,6 +47,7 @@ public class reportePedidos extends javax.swing.JFrame implements Observer{
                 for (Platillo plato : pedido.getCompras()){
                     try {
                         fila[2] += plato.getNombre() + "  ";
+                        fila[2].replace("null","");
                     } catch (Exception e) {
                     }
                     
