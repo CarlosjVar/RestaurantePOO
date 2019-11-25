@@ -107,7 +107,8 @@ public class ServerThread implements Runnable {
                  }
                  Restaurante.getInstance().getRegistro().add("Se ha vendido "+platillo.getNombre());
                 }
-                Mensaje mensaje=new Mensaje("((づ◔ ͜ʖ◔)づ)");
+                Restaurante.getInstance().updateObservers();
+                Mensaje mensaje=new Mensaje("");
                 OutStream.writeObject(mensaje);  
             }
                 }

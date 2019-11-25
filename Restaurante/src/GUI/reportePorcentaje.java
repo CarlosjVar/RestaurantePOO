@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import static javax.swing.SwingConstants.VERTICAL;
 import javax.swing.table.DefaultTableModel;
 import restaurante.*;
 
@@ -18,6 +19,15 @@ public class reportePorcentaje extends javax.swing.JFrame implements Observer {
      */
     public reportePorcentaje() {
         initComponents();
+        llevarPB.setMaximum(100);
+        expressPB.setMaximum(100);
+        sitioPB.setMaximum(100);
+        llevarPB.setOrientation(VERTICAL);
+        expressPB.setOrientation(VERTICAL);
+        sitioPB.setOrientation(VERTICAL);
+        llevarPB.updateUI();
+        expressPB.updateUI();
+        sitioPB.updateUI();
         update();
     }
 
@@ -34,6 +44,12 @@ public class reportePorcentaje extends javax.swing.JFrame implements Observer {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        llevarPB = new javax.swing.JProgressBar();
+        jLabel6 = new javax.swing.JLabel();
+        sitioPB = new javax.swing.JProgressBar();
+        expressPB = new javax.swing.JProgressBar();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -71,6 +87,17 @@ public class reportePorcentaje extends javax.swing.JFrame implements Observer {
         jLabel1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jLabel1.setText("Pedidos totales: ");
 
+        jLabel5.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel5.setText("Para Llevar");
+
+        jLabel6.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel6.setText("En Sitio");
+
+        sitioPB.setOrientation(1);
+
+        jLabel7.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
+        jLabel7.setText("Express");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,24 +105,56 @@ public class reportePorcentaje extends javax.swing.JFrame implements Observer {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel1)
+                                .addGap(0, 109, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sitioPB, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(184, 184, 184)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(llevarPB, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(expressPB, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sitioPB, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(expressPB, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(llevarPB, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
 
         pack();
@@ -125,18 +184,30 @@ public class reportePorcentaje extends javax.swing.JFrame implements Observer {
         String[] fila = new String[3];
         fila[0] = "En sitio";
         fila[1] = Integer.toString(pedidosEnSitio);
-        fila[2] = Float.toString((pedidosEnSitio*100)/totalPedidos);
+        fila[2] = Float.toString((pedidosEnSitio*100)/totalPedidos)+ "%";
         model.addRow(fila);
         fila[0] = "Para recoger";
         fila[1] = Integer.toString(paraRecoger);
-        fila[2] = Float.toString((paraRecoger*100)/totalPedidos);
+        fila[2] = Float.toString((paraRecoger*100)/totalPedidos)+ "%";
         model.addRow(fila);
         fila[0] = "Express";
         fila[1] = Integer.toString(express);
-        fila[2] = Float.toString((express*100)/totalPedidos);
-        jLabel1.setText(jLabel1.getText() + Integer.toString(totalPedidos) );
+        fila[2] = Float.toString((express*100)/totalPedidos) + "%";
+        jLabel1.setText(jLabel1.getText() + Integer.toString(totalPedidos));
         model.addRow(fila);
         jTable1.setModel(model);
+        llevarPB.setValue((paraRecoger*100)/totalPedidos);
+        expressPB.setValue((express*100)/totalPedidos);
+        sitioPB.setValue((pedidosEnSitio*100)/totalPedidos);
+        sitioPB.setString(Float.toString((pedidosEnSitio*100)/totalPedidos)+ "%");
+        sitioPB.setStringPainted(true);
+        expressPB.setString(Float.toString((express*100)/totalPedidos)+ "%");
+        expressPB.setStringPainted(true);
+        llevarPB.setString(Float.toString((paraRecoger*100)/totalPedidos)+ "%");
+        llevarPB.setStringPainted(true);
+        sitioPB.updateUI();
+        expressPB.updateUI();
+        llevarPB.updateUI();
         jTable1.updateUI();
     }
     
@@ -176,9 +247,15 @@ public class reportePorcentaje extends javax.swing.JFrame implements Observer {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar expressPB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JProgressBar llevarPB;
+    private javax.swing.JProgressBar sitioPB;
     // End of variables declaration//GEN-END:variables
 }

@@ -35,7 +35,7 @@ import restaurante.Platillo;
  * @author carlos
  */
 public class XmlParser {
-    public static String xmlFilePath="D:\\Universidad\\RestaurantePOO\\XML\\XML.xml";
+    public static String xmlFilePath="C:\\Users\\Jos\\Desktop\\Progra 3\\Progra POO\\RestaurantePOO\\XML\\XML.xml";
     /**
      * Método encargado de crear un XML desde cero a partir de un ArrayList de platillos
      * @param Platillos

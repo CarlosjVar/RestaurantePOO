@@ -67,9 +67,10 @@ public class reporteNoVendidos extends javax.swing.JFrame implements Observer {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Platillos sin vender");
 
         jLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel2.setText("Platillos sin vender del restauramte:");
+        jLabel2.setText("Platillos sin vender del restaurante:");
 
         jTable1.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

@@ -65,6 +65,7 @@ public class reportePedidos extends javax.swing.JFrame implements Observer{
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Listado de pedidos");
 
         jLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jLabel2.setText("Pedidos del restaurante: ");
