@@ -8,6 +8,7 @@ package GUI;
 import restaurante.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -17,6 +18,11 @@ import java.util.ArrayList;
 public class MainWindow extends javax.swing.JFrame {
     
     private  Restaurante rediPicsa = Restaurante.getInstance();
+    
+    public static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
 
     /**
      * Creates new form MainWindow
@@ -183,7 +189,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu12.add(jMenuItem17);
 
-        jMenuItem18.setText("Productos nunca pedidos");
+        jMenuItem18.setText("Platillos sin ventas");
         jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem18ActionPerformed(evt);
@@ -208,17 +214,17 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(111, 111, 111))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,9 +267,11 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
-    ArrayList <Platillo> Menu =  Restaurante.getInstance().getMenu();
-        for (Platillo plato : Menu){
-            System.out.println(plato.getCodigo());
+        if (rediPicsa.getMenu().isEmpty()){
+            MainWindow.infoBox("El menú del restaurante está vacío","Mensaje");
+        }else{
+            tablaMenu ventana = new tablaMenu();
+            ventana.setVisible(true);
         }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
@@ -285,10 +293,22 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
         // TODO add your handling code here:
+        if (rediPicsa.getMenu().isEmpty()){
+            MainWindow.infoBox("El menú del restaurante está vacío","Mensaje");
+        }else{
+            reporteTopTen ventana = new reporteTopTen();
+            ventana.setVisible(true);
+        }      
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
         // TODO add your handling code here:
+        if (rediPicsa.getMenu().isEmpty()){
+            MainWindow.infoBox("El menú del restaurante está vacío","Mensaje");
+        }else{
+        reporteNoVendidos ventana = new reporteNoVendidos();
+        ventana.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
