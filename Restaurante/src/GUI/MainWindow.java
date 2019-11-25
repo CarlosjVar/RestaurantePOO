@@ -283,6 +283,7 @@ public class MainWindow extends javax.swing.JFrame {
         }else{
             tablaMenu ventana = new tablaMenu();
             ventana.setVisible(true);
+            rediPicsa.addObserver(ventana);
         }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
@@ -305,6 +306,7 @@ public class MainWindow extends javax.swing.JFrame {
         }else{
             reportePedidos ventana = new reportePedidos();
             ventana.setVisible(true);
+            rediPicsa.addObserver(ventana);
         }    
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
@@ -315,6 +317,7 @@ public class MainWindow extends javax.swing.JFrame {
         }else{
             reporteTopTen ventana = new reporteTopTen();
             ventana.setVisible(true);
+            rediPicsa.addObserver(ventana);
         }      
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
@@ -323,8 +326,9 @@ public class MainWindow extends javax.swing.JFrame {
         if (rediPicsa.getMenu().isEmpty()){
             MainWindow.infoBox("El menú del restaurante está vacío","Mensaje");
         }else{
-        reporteNoVendidos ventana = new reporteNoVendidos();
-        ventana.setVisible(true);
+            reporteNoVendidos ventana = new reporteNoVendidos();
+            ventana.setVisible(true);
+            rediPicsa.addObserver(ventana);
         }
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
@@ -335,6 +339,7 @@ public class MainWindow extends javax.swing.JFrame {
         }else{
             reportePorcentaje ventana = new reportePorcentaje();
             ventana.setVisible(true);
+            rediPicsa.addObserver(ventana);
         }
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
@@ -344,9 +349,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        Bitacora asd=new Bitacora(Restaurante.getInstance().getRegistro());
-        asd.setVisible(true);
-        
+        Bitacora ventana=new Bitacora(Restaurante.getInstance().getRegistro());
+        ventana.setVisible(true);      
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**

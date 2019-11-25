@@ -6,7 +6,7 @@ import java.lang.String;
 /**
  * 
  */
-public class Restaurante implements Observer {
+public class Restaurante implements Observable {
     private ArrayList <Pedido> pedidos;
     private ArrayList <Platillo> listaVentas;
 
@@ -19,6 +19,7 @@ public class Restaurante implements Observer {
     private static Restaurante RediPicsa=null;
         
     private ArrayList <String> registro;
+    private ArrayList <Observer> observers;
 
     public static int getConsecutivo() {
         return Consecutivo;
@@ -26,8 +27,7 @@ public class Restaurante implements Observer {
 
     public static void setConsecutivo(int Consecutivo) {
         Restaurante.Consecutivo = Consecutivo;
-    }
-    
+    }   
     public static int Consecutivo;
     
     private Restaurante() {
@@ -36,11 +36,45 @@ public class Restaurante implements Observer {
     this.MontoEmpaque = 0;
     this.Menu = new ArrayList<Platillo>();
     this.registro=new ArrayList<String>();
-    this.pedidos = new ArrayList <Pedido> ();   
+    this.pedidos = new ArrayList <Pedido> (); 
+    this.observers = new ArrayList <Observer> ();
+    }
+    
+    @Override
+    public void updateObservers () {
+        cleanObservers();
+        for (Observer observador : observers){
+            observador.update();
+        }
+    }
+    
+    private void cleanObservers () {
+        for (Observer observador : observers){
+            if (observador==null)
+                observers.remove(observador);
+        }
+    }
+    
+    public void addObserver (Observer observador) {
+        this.observers.add(observador);
+    }
+    
+    @Override
+    public void removeObserver (int index) {
+        this.observers.remove(index);
+    }
+    
+    @Override
+    public void removeObserver (Observer observer) {
+        this.observers.remove(observer);
     }
     
     
-
+    @Override
+    public ArrayList <Observer> getObservers () {
+        return observers;
+    }
+    
     public ArrayList<String> getRegistro() {
         return registro;
     }
@@ -199,13 +233,5 @@ public class Restaurante implements Observer {
 
     public static void setMontoEmpaque(int MontoEmpaque) {
         MontoEmpaque = MontoEmpaque;
-    }
-
-    
-    public void Operation1() {
-        // TODO implement here
-    }
-    
-        
-  
+    }  
 }

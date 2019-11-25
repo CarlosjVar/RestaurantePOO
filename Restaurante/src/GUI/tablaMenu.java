@@ -14,32 +14,14 @@ import javax.swing.table.*;
  *
  * @author Personal
  */
-public class tablaMenu extends javax.swing.JFrame {
+public class tablaMenu extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form tablaMenu
      */
     public tablaMenu() {
         initComponents();
-        DefaultTableModel model = (DefaultTableModel) TablaMenu.getModel();
-        for (Platillo plato : Restaurante.getInstance().getMenu()){
-            String[] fila;
-            fila = new String[7];
-            fila[0] = plato.getCodigo();
-            fila[1] = plato.getNombre();
-            fila[2] = plato.getDescripcion();
-            fila[3] =Integer.toString(plato.getRacion());
-            fila[4] =Float.toString(plato.getCalorias());
-            fila[5] =Integer.toString(plato.getPrecio());
-            if (plato.isActivo()){
-                fila[6] = "Si";
-            }
-            else{
-                fila[6] = "No";
-            }
-            model.addRow(fila);   
-        }
-        TablaMenu.setModel(model);       
+        this.update();
     }
 
     /**
@@ -97,10 +79,11 @@ public class tablaMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +97,34 @@ public class tablaMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    @Override
+    public void update () {
+        DefaultTableModel model = (DefaultTableModel) TablaMenu.getModel();
+        while (model.getRowCount()!=0){
+            model.removeRow(model.getRowCount()-1);
+        }
+        for (Platillo plato : Restaurante.getInstance().getMenu()){
+            String[] fila;
+            fila = new String[7];
+            fila[0] = plato.getCodigo();
+            fila[1] = plato.getNombre();
+            fila[2] = plato.getDescripcion();
+            fila[3] =Integer.toString(plato.getRacion());
+            fila[4] =Float.toString(plato.getCalorias());
+            fila[5] =Integer.toString(plato.getPrecio());
+            if (plato.isActivo()){
+                fila[6] = "Si";
+            }
+            else{
+                fila[6] = "No";
+            }
+            model.addRow(fila);   
+        }
+        TablaMenu.setModel(model);
+        TablaMenu.updateUI();
+    }
+    
     /**
      * @param args the command line arguments
      */

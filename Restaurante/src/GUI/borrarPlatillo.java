@@ -102,6 +102,7 @@ public class borrarPlatillo extends javax.swing.JFrame {
             borrarPlatillo.infoBox("El código indicado no corresponde a ningún platillo del menú", "Mensaje");
         } else{
             ArrayList <Platillo> Menu = Restaurante.getInstance().getMenu();
+            Restaurante.getInstance().updateObservers();
             borrarPlatillo.infoBox("Platillo borrado", "Mensaje");
         }            
     }//GEN-LAST:event_jButton1ActionPerformed

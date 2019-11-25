@@ -12,13 +12,22 @@ import restaurante.*;
  *
  * @author Personal
  */
-public class reporteTopTen extends javax.swing.JFrame {
+public class reporteTopTen extends javax.swing.JFrame implements Observer {
 
     /**
      * Creates new form reporteTopTen
      */
     public reporteTopTen() {
         initComponents();
+        update();
+    }
+    
+    @Override
+    public void update () {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        while (model.getRowCount()!=0){
+            model.removeRow(model.getRowCount()-1);
+        }
         ArrayList<Platillo> ordenado = new ArrayList();
         ArrayList<Platillo> temp = new ArrayList();
         for (Platillo plato : Restaurante.getInstance().getMenu()){
@@ -37,7 +46,6 @@ public class reporteTopTen extends javax.swing.JFrame {
                    break;
             }
         }
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (Platillo plato : ordenado){
             String[] fila;
             fila = new String[7];
@@ -51,8 +59,8 @@ public class reporteTopTen extends javax.swing.JFrame {
             model.addRow(fila);   
         }
         jTable1.setModel(model);
+        jTable1.updateUI();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

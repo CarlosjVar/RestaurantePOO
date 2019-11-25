@@ -11,14 +11,22 @@ import restaurante.*;
  *
  * @author Jos
  */
-public class reportePedidos extends javax.swing.JFrame {
+public class reportePedidos extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form reportePedidos
      */
     public reportePedidos() {
         initComponents();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        update();
+    }
+    
+    @Override
+    public void update () {
+       DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+       while (model.getRowCount()!=0){
+            model.removeRow(model.getRowCount()-1);
+        }
         for (Pedido pedido : Restaurante.getInstance().getPedidos()){
                 String[] fila;
                 fila = new String[4];
@@ -33,12 +41,14 @@ public class reportePedidos extends javax.swing.JFrame {
                 }
                 fila[1] = pedido.getClientePedido();
                 for (Platillo plato : pedido.getCompras()){
-                    fila[2] += plato.getNombre() + "\n";
+                    if (plato.getNombre()!=null||!"null".equals(plato.getNombre()))
+                        fila[2] += plato.getNombre() + "  ";
                 }
                fila[3] = pedido.getFecha();
                model.addRow(fila);
         }
         jTable1.setModel(model);
+        jTable1.updateUI();
     }
 
     /**

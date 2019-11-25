@@ -6,21 +6,31 @@
 package GUI;
 
 import javax.swing.table.DefaultTableModel;
-import restaurante.Platillo;
-import restaurante.Restaurante;
+import restaurante.*;
 
 /**
  *
  * @author Jos
  */
-public class reporteNoVendidos extends javax.swing.JFrame {
+public class reporteNoVendidos extends javax.swing.JFrame implements Observer {
 
     /**
      * Creates new form reporteNoVendidos
      */
     public reporteNoVendidos() {
-    initComponents();
-    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        initComponents();
+        update();
+    }
+    
+    /**
+     *
+     */
+    @Override
+    public void update() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        while (model.getRowCount()!=0){
+            model.removeRow(model.getRowCount()-1);
+        }
         for (Platillo plato : Restaurante.getInstance().getMenu()){
             if (plato.getVentas()==0){
                 String[] fila;
@@ -41,8 +51,8 @@ public class reporteNoVendidos extends javax.swing.JFrame {
             }
         }
         jTable1.setModel(model);
+        jTable1.updateUI();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,7 +77,7 @@ public class reporteNoVendidos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nombre", "Descripción", "Ración", "Calorias P/R", "Precio", "# de ventas"
+                "Código", "Nombre", "Descripción", "Ración", "Calorias P/R", "Precio", "Habilitado"
             }
         ) {
             Class[] types = new Class [] {

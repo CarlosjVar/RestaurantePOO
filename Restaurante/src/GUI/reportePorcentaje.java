@@ -11,44 +11,14 @@ import restaurante.*;
  *
  * @author Jos
  */
-public class reportePorcentaje extends javax.swing.JFrame {
+public class reportePorcentaje extends javax.swing.JFrame implements Observer {
 
     /**
      * Creates new form reportePorcentaje
      */
     public reportePorcentaje() {
         initComponents();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int totalPedidos = 0;
-        int paraRecoger = 0;
-        int express = 0;
-        int pedidosEnSitio = 0;
-        for (Pedido pedido : Restaurante.getInstance().getPedidos()){
-            if (pedido instanceof Express){
-                    express++;
-            }
-            else if (pedido instanceof Llevado){
-                    paraRecoger++;
-            }
-            else{
-                    pedidosEnSitio++;
-            }
-            totalPedidos++;
-        }
-        String[] fila = new String[3];
-        fila[0] = "En sitio";
-        fila[1] = Integer.toString(pedidosEnSitio);
-        fila[2] = Float.toString((pedidosEnSitio*100)/totalPedidos);
-        model.addRow(fila);
-        fila[0] = "Para recoger";
-        fila[1] = Integer.toString(paraRecoger);
-        fila[2] = Float.toString((paraRecoger*100)/totalPedidos);
-        model.addRow(fila);
-        fila[0] = "Express";
-        fila[1] = Integer.toString(express);
-        fila[2] = Float.toString((express*100)/totalPedidos);
-        jLabel1.setText(jLabel1.getText() + Integer.toString(totalPedidos) );
-        model.addRow(fila);
+        update();
     }
 
     /**
@@ -130,7 +100,46 @@ public class reportePorcentaje extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void update() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        while (model.getRowCount()!=0){
+            model.removeRow(model.getRowCount()-1);
+        }
+        int totalPedidos = 0;
+        int paraRecoger = 0;
+        int express = 0;
+        int pedidosEnSitio = 0;
+        for (Pedido pedido : Restaurante.getInstance().getPedidos()){
+            if (pedido instanceof Express){
+                    express++;
+            }
+            else if (pedido instanceof Llevado){
+                    paraRecoger++;
+            }
+            else{
+                    pedidosEnSitio++;
+            }
+            totalPedidos++;
+        }
+        String[] fila = new String[3];
+        fila[0] = "En sitio";
+        fila[1] = Integer.toString(pedidosEnSitio);
+        fila[2] = Float.toString((pedidosEnSitio*100)/totalPedidos);
+        model.addRow(fila);
+        fila[0] = "Para recoger";
+        fila[1] = Integer.toString(paraRecoger);
+        fila[2] = Float.toString((paraRecoger*100)/totalPedidos);
+        model.addRow(fila);
+        fila[0] = "Express";
+        fila[1] = Integer.toString(express);
+        fila[2] = Float.toString((express*100)/totalPedidos);
+        jLabel1.setText(jLabel1.getText() + Integer.toString(totalPedidos) );
+        model.addRow(fila);
+        jTable1.setModel(model);
+        jTable1.updateUI();
+    }
+    
     /**
      * @param args the command line arguments
      */

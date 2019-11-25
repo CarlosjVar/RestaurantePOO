@@ -10,6 +10,5 @@ public interface Observer {
     /**
      * 
      */
-    public void Operation1();
-
+    public void update();
 }
