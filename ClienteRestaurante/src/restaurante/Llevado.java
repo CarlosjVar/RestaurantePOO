@@ -21,7 +21,16 @@ public class Llevado extends Pedido {
     }
 
 
-    
+    private int empaque; 
+
+    public int getEmpaque() {
+        return empaque;
+    }
+
+    public void setEmpaque(int empaque) {
+        this.empaque = empaque;
+    }
+            
     public String getRecolector() {
         return Recolector;
     }
