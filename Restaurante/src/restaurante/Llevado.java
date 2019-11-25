@@ -13,11 +13,11 @@ public class Llevado extends Pedido {
     private String NumeroRecolector;
     private int Valor;
 
-    public Llevado(String Recolector, String NumeroRecolector, int Valor, String Fecha, String ClientePedido) {
+    public Llevado(String Recolector, String NumeroRecolector,String Fecha, String ClientePedido) {
         super(Fecha, ClientePedido);
         this.Recolector = Recolector;
         this.NumeroRecolector = NumeroRecolector;
-        this.Valor = Valor;
+        this.Valor = 0;
     }
 
 

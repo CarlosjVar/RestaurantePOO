@@ -354,6 +354,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         Servidor server=new Servidor();
         server.iniciarServidor();
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

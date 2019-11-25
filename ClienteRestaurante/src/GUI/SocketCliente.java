@@ -35,13 +35,14 @@ class SocketCliente{
             this.socket=new Socket("127.0.0.1",6969);
             ObjectOutputStream OutStream=new ObjectOutputStream(this.socket.getOutputStream());
             ObjectInputStream InStream=new ObjectInputStream(this.socket.getInputStream());
+            System.out.println(info);
             if(info.equals("Consecutivo"))
             {
                 Mensaje mensaje=new Mensaje(info);
                 OutStream.reset();
                 OutStream.writeObject(mensaje);
             }
-            else if(info.equals("mierdu"))
+            else if(info.equals("Mierdu"))
             {
                 Mensaje mensaje=new Mensaje(info);
                 OutStream.reset();
@@ -60,6 +61,7 @@ class SocketCliente{
                 OutStream.writeObject(mensaje);
             }
             Mensaje mensa=(Mensaje)InStream.readObject();
+            System.out.println(mensa.Conse);
             System.out.print(mensa.getMessage());
             if("Menu".equals(mensa.getMessage())){
                 System.out.println(mensa.getMenu().size());
@@ -67,6 +69,7 @@ class SocketCliente{
             }
             else if("Consecutivo".equals(mensa.getMessage()))
             {
+                MainWindow.getPeticion();
                 MainWindow.getPeticion().setConsecutivoPedido(mensa.Conse);
             }
             else if("Consecutivo2".equals(mensa.getMessage()))

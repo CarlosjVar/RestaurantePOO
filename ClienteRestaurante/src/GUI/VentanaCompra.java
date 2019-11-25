@@ -18,6 +18,7 @@ import restaurante.Platillo;
  * @author Fabrizio
  */
 public class VentanaCompra extends javax.swing.JFrame {
+    DefaultListModel<String> model = new DefaultListModel<>();
 
     public Pedido getEleccion() {
         return eleccion;
@@ -160,7 +161,8 @@ public class VentanaCompra extends javax.swing.JFrame {
 
     private VentanaCompra(){
         initComponents();
-        this.eleccion=new Pedido();
+        
+        this.jList1.setModel(this.model);
     }
 
     /**
@@ -584,77 +586,50 @@ public class VentanaCompra extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        DefaultListModel<String> model = new DefaultListModel<>();
-        JList<String>jList1 = new JList<>(model);
+        DefaultListModel<String> model = this.model;
+        //JList<String>jList1 = new JList<>(model);
+      
         if(CBEntradas.isEnabled()){
             for(Platillo plat:menuBusqueda){
-                if(plat.getCodigo()==CBEntradas.getSelectedItem().toString().substring(0, 7))
+                if(plat.getCodigo() == null ? CBEntradas.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBEntradas.getSelectedItem().toString().substring(0, 7)))
                 {
-                    eleccion.getCompras().add(plat);
+                    System.out.println("aa");
+                    MainWindow.getPeticion().getCompras().add(plat);
                     model.addElement(CBEntradas.getSelectedItem().toString());
                 }
             }
         }else if(CBPF.isEnabled()){
             for(Platillo plat:menuBusqueda){
-                if(plat.getCodigo()==CBPF.getSelectedItem().toString().substring(0, 7))
+                if(plat.getCodigo() == null ? CBPF.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBPF.getSelectedItem().toString().substring(0, 7)))
                 {
-                    eleccion.getCompras().add(plat);
+                    MainWindow.getPeticion().getCompras().add(plat);
                     model.addElement(CBPF.getSelectedItem().toString());
                 }
             }
         }else if(CBBeb.isEnabled()){
             for(Platillo plat:menuBusqueda){
-                if(plat.getCodigo()==CBBeb.getSelectedItem().toString().substring(0, 7))
+                if(plat.getCodigo() == null ? CBBeb.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBBeb.getSelectedItem().toString().substring(0, 7)))
                 {
-                    eleccion.getCompras().add(plat);
+                    MainWindow.getPeticion().getCompras().add(plat);
                     model.addElement(CBBeb.getSelectedItem().toString());
                 }
             }
         }else if(CBPostres.isEnabled()){
             for(Platillo plat:menuBusqueda){
-                if(plat.getCodigo()==CBPostres.getSelectedItem().toString().substring(0, 7))
+                if(plat.getCodigo() == null ? CBPostres.getSelectedItem().toString().substring(0, 7) == null : plat.getCodigo().equals(CBPostres.getSelectedItem().toString().substring(0, 7)))
                 {
-                    eleccion.getCompras().add(plat);
+                    MainWindow.getPeticion().getCompras().add(plat);
                     model.addElement(CBPostres.getSelectedItem().toString());      
                 }
             }
         }
+         jList1.setModel(model);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaCompra().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBBeb;

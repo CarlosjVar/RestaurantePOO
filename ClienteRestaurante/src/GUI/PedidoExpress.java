@@ -156,9 +156,11 @@ public class PedidoExpress extends javax.swing.JFrame {
             String fecha= Integer.toString(year)+"/"+Integer.toString(month)+"/"+Integer.toString(day);
             Express pedido=new Express(jTextField3.getText(),jTextField2.getText(), jTextField1.getText(),fecha);
             MainWindow.setPeticion(pedido);
+           
             try {
                 SocketCliente sockt=new SocketCliente();
                 sockt.mandarSignal("Consecutivo2");
+                this.dispose();
             } catch (IOException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {

@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import restaurante.Pedido;
+import GUI.MainWindow;
 
 /**
  *
@@ -114,9 +115,11 @@ public class PedidoNormal extends javax.swing.JFrame {
             String fecha= Integer.toString(year)+"/"+Integer.toString(month)+"/"+Integer.toString(day);
             Pedido pedido=new Pedido(fecha,jTextField1.getText());
             MainWindow.setPeticion(pedido);
+            System.out.println(MainWindow.getPeticion().getFecha());
             try {
             SocketCliente sockt=new SocketCliente();
             sockt.mandarSignal("Consecutivo");
+            this.dispose();
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
