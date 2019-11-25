@@ -23,6 +23,23 @@ public class Mensaje implements Serializable {
     public void setMenu(ArrayList Menu) {
         this.Menu = Menu;
     }
+     public int getPorcentaje() {
+        return Porcentaje;
+    }
+
+    public void setPorcentaje(int Porcentaje) {
+        this.Porcentaje = Porcentaje;
+    }
+
+    public int getExtra() {
+        return extra;
+    }
+
+    public void setExtra(int extra) {
+        this.extra = extra;
+    }
+    public int extra;
+    public int Porcentaje;
 
     public String message;
    

@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/GUI/Mensaje.java</file>
+            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/GUI/PedidoExpress.java</file>
+            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/restaurante/Express.java</file>
             <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/GUI/MainWindow.java</file>
-            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/restaurante/Platillo.java</file>
-            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/GUI/VentanaCompra.java</file>
+            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/GUI/PedidoNormal.java</file>
+            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/restaurante/Pedido.java</file>
+            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/GUI/PedidoLLevado.java</file>
             <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/GUI/SocketCliente.java</file>
+            <file>file:/D:/Universidad/RestaurantePOO/ClienteRestaurante/src/restaurante/Llevado.java</file>
         </group>
     </open-files>
 </project-private>

@@ -8,11 +8,10 @@ import java.util.*;
  */
 public class Express extends Pedido {
 
-    public Express(String Telefono, String Direccion, int Valor, String Fecha, String ClientePedido, int ConsecutivoPedido) {
+    public Express(String Telefono, String Direccion, String Fecha, String ClientePedido) {
         super(Fecha, ClientePedido);
         this.Telefono = Telefono;
         this.Direccion = Direccion;
-        this.Valor = Valor;
     }
 
 
