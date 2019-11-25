@@ -166,7 +166,7 @@ public class PedidoLLevado extends javax.swing.JFrame {
             MainWindow.setPeticion(pedido);
             try {
             SocketCliente sockt=new SocketCliente();
-            sockt.mandarSignal("Consecutivo");
+            sockt.mandarSignal("Consecutivo3");
             }catch (IOException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }catch (ClassNotFoundException ex) {
