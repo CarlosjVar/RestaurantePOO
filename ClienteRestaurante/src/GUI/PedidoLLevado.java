@@ -164,9 +164,11 @@ public class PedidoLLevado extends javax.swing.JFrame {
             String fecha= Integer.toString(year)+"/"+Integer.toString(month)+"/"+Integer.toString(day);
             Llevado pedido=new Llevado(jTextField3.getText(), jTextField1.getText(),fecha,jTextField2.getText());
             MainWindow.setPeticion(pedido);
+            
             try {
             SocketCliente sockt=new SocketCliente();
             sockt.mandarSignal("Consecutivo3");
+            this.dispose();
             }catch (IOException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }catch (ClassNotFoundException ex) {

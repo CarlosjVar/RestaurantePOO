@@ -21,7 +21,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public static void setPeticion(Pedido peticion) {
-        peticion = peticion;
+        MainWindow.peticion = peticion;
     }
 
     /**
@@ -144,12 +144,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        PedidoNormal ventana=new PedidoNormal();
-        ventana.setVisible(true);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        PedidoNormal ventana=new PedidoNormal();
+        ventana.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -183,6 +184,8 @@ public class MainWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainWindow().setVisible(true);
+
+                
             }
         });
     }

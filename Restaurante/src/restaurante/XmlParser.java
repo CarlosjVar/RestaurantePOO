@@ -35,7 +35,7 @@ import restaurante.Platillo;
  * @author carlos
  */
 public class XmlParser {
-    public static String xmlFilePath="C:\\Users\\Edgar\\Desktop\\Varios\\Fabri\\Java\\Restaurante\\RestaurantePOO\\XML\\XML.xml";
+    public static String xmlFilePath="D:\\Universidad\\RestaurantePOO\\XML\\XML.xml";
     /**
      * Método encargado de crear un XML desde cero a partir de un ArrayList de platillos
      * @param Platillos
@@ -147,6 +147,7 @@ public class XmlParser {
     public void CargarXML(ArrayList<Platillo> PlatillosRestaurante,Restaurante redipicsa) {      
         try {
             File inputFile = new File(xmlFilePath);
+                            System.out.println("asduhgvkasdbjklnfl");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
