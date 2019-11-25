@@ -33,17 +33,20 @@ public class reporteTopTen extends javax.swing.JFrame implements Observer {
         for (Platillo plato : Restaurante.getInstance().getMenu()){
             temp.add(plato);
         }
-        while (ordenado.size()<10 && ordenado.size()<Restaurante.getInstance().getMenu().size()){
+        while ((ordenado.size()<10) && (ordenado.size()<Restaurante.getInstance().getMenu().size())){
             int mayor = 0;
             for (Platillo plato : temp){
-                if (plato.getVentas()>mayor)
+                if (plato.getVentas()>mayor){
                    mayor = plato.getVentas();
+                }
             }
+            System.out.println("");
             for (Platillo plato : temp){
-                if (plato.getVentas()==mayor)
-                   ordenado.add(plato);
-                   temp.remove(plato);
-                   break;
+                if (plato.getVentas()==mayor){
+                    ordenado.add(plato);
+                    boolean remove = temp.remove(plato);
+                    break;
+                }
             }
         }
         for (Platillo plato : ordenado){
