@@ -9,8 +9,16 @@ import java.util.*;
 public class Pedido {
     
     protected String Fecha;
+    
+    private int valor;
 
-    protected static int Consecutivo;
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
 
     protected String ClientePedido;
 
@@ -35,13 +43,7 @@ public class Pedido {
         this.Fecha = Fecha;
     }
 
-    public static int getConsecutivo() {
-        return Consecutivo;
-    }
-
-    public static void setConsecutivo(int Consecutivo) {
-        Pedido.Consecutivo = Consecutivo;
-    }
+   
 
     public String getClientePedido() {
         return ClientePedido;

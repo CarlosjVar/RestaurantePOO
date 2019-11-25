@@ -61,13 +61,7 @@ public class Express extends Pedido {
         this.Fecha = Fecha;
     }
 
-    public static int getConsecutivo() {
-        return Consecutivo;
-    }
-
-    public static void setConsecutivo(int Consecutivo) {
-        Pedido.Consecutivo = Consecutivo;
-    }
+   
 
     public String getClientePedido() {
         return ClientePedido;

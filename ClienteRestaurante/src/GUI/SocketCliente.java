@@ -51,6 +51,12 @@ class SocketCliente{
                 OutStream.reset();
                 OutStream.writeObject(mensaje);
             }
+            else if(info.equals("Consecutivo3"))
+            {
+                Mensaje mensaje=new Mensaje(info);
+                OutStream.reset();
+                OutStream.writeObject(mensaje);
+            }
             Mensaje mensa=(Mensaje)InStream.readObject();
             System.out.print(mensa.getMessage());
             if("Menu".equals(mensa.getMessage())){
@@ -58,6 +64,10 @@ class SocketCliente{
                 VentanaCompra.getInstance().rellenarVentanas(mensa.getMenu());
             }
             else if("Consecutivo".equals(mensa.getMessage()))
+            {
+                MainWindow.getPeticion().setConsecutivoPedido(mensa.Conse);
+            }
+            else if("Consecutivo2".equals(mensa.getMessage()))
             {
                 MainWindow.getPeticion().setConsecutivoPedido(mensa.Conse);
             }
