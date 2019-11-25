@@ -43,7 +43,7 @@ public class modificarEmpaque extends javax.swing.JFrame {
         setTitle("Registrar/Modificar precio de empaque");
 
         jLabel1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel1.setText("Precio del empaquetado:");
+        jLabel1.setText("Porcentaje del empaquetado:");
 
         jTextField1.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +53,7 @@ public class modificarEmpaque extends javax.swing.JFrame {
         });
 
         jButton1.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jButton1.setText("Registrar/Modificar precio");
+        jButton1.setText("Registrar/Modificar porcentaje");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -61,7 +61,7 @@ public class modificarEmpaque extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        jLabel2.setText("Precio del empaquetado anterior: ");
+        jLabel2.setText("Porcentaje del empaquetado anterior: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,12 +75,12 @@ public class modificarEmpaque extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jButton1))
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addGap(83, 83, 83)
+                        .addComponent(jButton1)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,9 +91,9 @@ public class modificarEmpaque extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();

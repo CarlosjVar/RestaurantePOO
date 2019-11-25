@@ -98,7 +98,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         jLabel3.setText("encontrará sus opciones en el superior de esta ventana");
 
-        jMenu9.setText("Administrar catálogo");
+        jMenu9.setText("Administrar platillos");
 
         jMenuItem5.setText("Añadir platillo");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +161,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu11.add(jMenuItem9);
 
-        jMenuItem10.setText("Registrar/Modificar precio de empaque");
+        jMenuItem10.setText("Registrar/Modificar porcentaje de empaque");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -171,7 +171,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu11);
 
-        jMenu12.setText("Reportes de pedidos");
+        jMenu12.setText("Reportes");
 
         jMenuItem16.setText("Listado de pedidos");
         jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu12.add(jMenuItem16);
 
-        jMenuItem17.setText("Top - Ten ");
+        jMenuItem17.setText("Platillos más vendidos");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem17ActionPerformed(evt);
@@ -214,28 +214,28 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(111, 111, 111))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addGap(0, 27, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -289,6 +289,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
         // TODO add your handling code here:
+        if (rediPicsa.getPedidos().isEmpty()){
+            MainWindow.infoBox("No se han realizado pedidos aún","Mensaje");
+        }else{
+            reportePedidos ventana = new reportePedidos();
+            ventana.setVisible(true);
+        }    
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed

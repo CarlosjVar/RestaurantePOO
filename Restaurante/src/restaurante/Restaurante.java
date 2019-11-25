@@ -7,6 +7,7 @@ import java.lang.String;
  * 
  */
 public class Restaurante implements Observer {
+    private ArrayList <Pedido> pedidos;
     private ArrayList listaVentas;
 
     private static int MontoExpress;
@@ -35,7 +36,10 @@ public class Restaurante implements Observer {
     this.MontoEmpaque = 0;
     this.Menu = new ArrayList<Platillo>();
     this.registro=new ArrayList<String>();
+    this.pedidos = new ArrayList <Pedido> ();   
     }
+    
+    
 
     public ArrayList<String> getRegistro() {
         return registro;
@@ -159,6 +163,14 @@ public class Restaurante implements Observer {
 
     public ArrayList<Platillo> getMenu() {
         return Menu;
+    }
+    
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+    
+    public void setPedidos(ArrayList<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
     public void setMenu(ArrayList Menu) {
