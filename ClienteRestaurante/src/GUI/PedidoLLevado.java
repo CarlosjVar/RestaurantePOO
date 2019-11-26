@@ -151,7 +151,10 @@ public class PedidoLLevado extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
+    /**
+     * Consigue los datos ingresados por el usuario, más la hora en el momento y lo asigna a un pedido, de la misma manera solicita al servidor el consecutivo de pedidoc correspondiente
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(!jTextField2.getText().isEmpty()&&!jTextField1.getText().isEmpty()&&!jTextField3.getText().isEmpty())

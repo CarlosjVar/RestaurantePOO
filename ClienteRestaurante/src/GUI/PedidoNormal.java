@@ -102,6 +102,10 @@ public class PedidoNormal extends javax.swing.JFrame {
     {
         JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
+    /**
+     * Consigue los datos ingresados por el usuario, más la hora en el momento y lo asigna a un pedido, de la misma manera solicita al servidor el consecutivo de pedidoc correspondiente
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 

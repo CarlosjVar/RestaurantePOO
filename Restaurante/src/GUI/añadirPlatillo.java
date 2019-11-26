@@ -283,7 +283,7 @@ public class añadirPlatillo extends javax.swing.JFrame {
     {
         JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String tipo = jComboBox1.getSelectedItem().toString();

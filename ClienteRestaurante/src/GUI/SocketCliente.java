@@ -16,8 +16,10 @@ import restaurante.Llevado;
  *
  * @author Fabrizio
  */
-class SocketCliente{
-        
+public class SocketCliente{
+        /**
+         * Socket donde se realiza la transferencia de información
+         */
         Socket socket;
         public SocketCliente() throws IOException, ClassNotFoundException
         {
@@ -31,6 +33,12 @@ class SocketCliente{
 //            OutStream.close();
             //socket.close();
         }
+        /**
+         * Metodo encargado de enviar y recibir señales con el servidor
+         * @param info
+         * @throws IOException
+         * @throws ClassNotFoundException 
+         */
         public void mandarSignal(String info) throws IOException, ClassNotFoundException{
             this.socket=new Socket("127.0.0.1",6969);
             ObjectOutputStream OutStream=new ObjectOutputStream(this.socket.getOutputStream());

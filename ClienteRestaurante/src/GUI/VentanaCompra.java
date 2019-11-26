@@ -24,18 +24,31 @@ import restaurante.Platillo;
 public class VentanaCompra extends javax.swing.JFrame {
     DefaultListModel<String> model = new DefaultListModel<>();
 
+    /**
+     * Consigue el pedido asignado a la ventana
+     * @return 
+     */
     public Pedido getEleccion() {
         return eleccion;
     }
-
+    /**
+     * Configura el pedido de la ventana
+     * @param eleccion 
+     */
     public void setEleccion(Pedido eleccion) {
         this.eleccion = eleccion;
     }
-
+    /**
+     * Consigue el menú configurado a la ventana
+     * @return 
+     */
     public ArrayList<Platillo> getMenuBusqueda() {
         return menuBusqueda;
     }
-
+    /**
+     * Asigna un menú a la ventana
+     * @param menuBusqueda 
+     */
     public void setMenuBusqueda(ArrayList<Platillo> menuBusqueda) {
         this.menuBusqueda = menuBusqueda;
     }
@@ -43,13 +56,19 @@ public class VentanaCompra extends javax.swing.JFrame {
     /**
      * Creates new form VentanaCompra
      */
-    
+    /**
+     * Ventana general
+     */
     private static VentanaCompra ventanacion=null;
-    
+    /**
+     * Pedido de la ventana
+     */
     private Pedido eleccion;
-    
+    /**
+     * Platillos del menu
+     */
     private ArrayList<Platillo> menuBusqueda;
-
+    
     public JTable getTablaBebidas() {
         return TablaBebidas;
     }
@@ -81,13 +100,19 @@ public class VentanaCompra extends javax.swing.JFrame {
     public void setTablaPF(JTable tablaPF) {
         this.tablaPF = tablaPF;
     }
-    
+    /**
+     * Singleton de la ventana
+     * @return 
+     */
     public static VentanaCompra getInstance(){
         if(ventanacion==null)
             ventanacion=new VentanaCompra();
         return ventanacion;
     }
-    
+    /**
+     * Método que rellena la ventana con la información del menú recibida desde el servidor
+     * @param Menu 
+     */
     public void rellenarVentanas(ArrayList<Platillo> Menu){
         setMenuBusqueda(Menu);
         CBBeb.removeAll();
@@ -788,9 +813,7 @@ public class VentanaCompra extends javax.swing.JFrame {
          jList1.setModel(model);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -122,7 +122,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Se encarga de solicitar el menú del restaurante activo y lo abre en una ventana
+     * @param evt 
+     */
     private void CompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompraActionPerformed
         // TODO add your handling code here:
         llevar.setEnabled(false);
@@ -140,6 +143,10 @@ public class MainWindow extends javax.swing.JFrame {
            
     }//GEN-LAST:event_CompraActionPerformed
 
+    /**
+     * Activa la posibilidad de comprar y desactiva la opción de elegir un pedido
+     * @param evt 
+     */
     private void llevarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llevarActionPerformed
         // TODO add your handling code here:
         PedidoLLevado ventana=new PedidoLLevado();
@@ -149,7 +156,10 @@ public class MainWindow extends javax.swing.JFrame {
         express.setEnabled(false);
         Compra.setEnabled(true);
     }//GEN-LAST:event_llevarActionPerformed
-
+    /**
+     * Activa la posibilidad de comprar y desactiva la opción de elegir un pedido
+     * @param evt 
+     */
     private void expressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expressActionPerformed
         // TODO add your handling code here:
         PedidoExpress pedido=new PedidoExpress();
@@ -160,7 +170,10 @@ public class MainWindow extends javax.swing.JFrame {
         Compra.setEnabled(true);
 
     }//GEN-LAST:event_expressActionPerformed
-
+    /**
+     * Activa la posibilidad de comprar y desactiva la opción de elegir un pedido
+     * @param evt 
+     */
     private void localActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localActionPerformed
         // TODO add your handling code here:
         PedidoNormal ventana=new PedidoNormal();
